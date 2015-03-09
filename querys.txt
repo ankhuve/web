@@ -1,0 +1,47 @@
+Önskvärt men verkar inte funka för att skapa table accomplished
+
+CREATE TABLE accomplished
+(
+userID INT REFERENCES user(id),
+taskID INT REFERENCES task(id),
+date date NOT NULL DEFAULT GETDATE(),
+PRIMARY KEY(userID, taskID, date)
+);
+
+Välj alla gjorda tasks den dagen. 
+
+SELECT * 
+FROM tasklist JOIN accomplished 
+ON tasklist.taskID = accomplished.taskID 
+AND tasklist.userID = accomplished.userID 
+WHERE accomplished.userID = 1 AND accomplished.date = '2015-2-20';
+
+Välj alla tasks som inte är gjorda den dagen. 
+
+SELECT taskID
+FROM tasklist
+WHERE taskID NOT IN (SELECT taskID
+FROM accomplished
+WHERE date = '2015-02-20') and userID = 1;
+
+********** UPDATE *********
+SELECT taskID FROM tasklist WHERE taskID NOT IN (SELECT taskID FROM accomplished WHERE date = '2015-2-22' AND userID = 3) AND userID = 3;
+
+SELECT * FROM task 
+WHERE id 
+IN(SELECT taskID
+FROM tasklist
+WHERE taskID NOT IN (SELECT taskID
+FROM accomplished
+WHERE date = '2015-02-20') and userID = 1);
+
+Lägg till en accomplished task
+
+INSERT INTO accomplished VALUES(userid, taskid, date);
+
+
+***** TOTALPOÄNG ******
+SELECT username, sum(points) totalPoints  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id GROUP BY username ORDER BY totalPoints DESC;
+
+***** POÄNG IDAG ******
+SELECT username, sum(points) pointsToday, user.id userID  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id WHERE accomplished.date = '2015-02-22' GROUP BY username ORDER BY pointsToday DESC;

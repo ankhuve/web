@@ -1,7 +1,7 @@
 // $('#goalButton').click(function(){
 // 	$(this).hide();
 // });
-
+console.log("mjao");
 $(window).load(function(){
 	for ( var i = 0; i < 20; i++ ) {
 		$( '<div class="col-xs-4 col-sm-2 col-md-2 goalButton" id='+i+'><p class="center">Panta en burk</p></div>' ).appendTo( ".goalGrid" );

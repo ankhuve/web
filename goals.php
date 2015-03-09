@@ -14,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/chooseGoal.js"></script>
-		<script src="getsize.js"></script>
+		<script src="js/getsize.js"></script>
 	</head>
 <body>
 	<div class="container fullWidth goalBg">
