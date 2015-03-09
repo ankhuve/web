@@ -4,7 +4,7 @@ body{
 }
 
 .mdMargin{
-	padding-top: 10%;
+	padding-top: 40px;
 }
 
 .center{
@@ -49,6 +49,11 @@ body{
 	padding-top: 8%;
 }
 
+.newGoalForm{
+	display: inline;
+	padding-top: 8%;
+}
+
 .userinput{
 	font-family: 'Roboto', sans-serif;
 	font-size: 14pt;
@@ -63,6 +68,27 @@ body{
 	border-radius: 50px;
 	background-color: rgba(0,0,0,0);
 	border: #ffffe8 solid 2px;
+}
+
+
+.newGoal{
+	width: 90%;
+	font-size: 1em;
+	font-weight: 300;
+	color: #ffffe8;
+}
+
+#check{
+	position: relative;
+	display: inline;
+}
+
+.createGoal{
+	height: 30pt;
+	color: #ffffe8;
+	margin-top: 30px;
+	font-size: 24pt;
+	font-weight: 300;
 }
 
 .userinput:focus{
@@ -122,7 +148,7 @@ a:active, a:visited, a:link {
 
 h1{
 	margin: 0px;
-	padding-top: 20vh;
+	padding-top: 40px;
 	color: #55a244;
 	font-weight: 300;
 }
@@ -131,7 +157,7 @@ h2{
 	margin: 0px;
 	margin-left: 5%;
 	margin-right: 5%;
-	padding-top: 10vh;
+	padding-top: 20px;
 	vertical-align: middle;
 	font-size: 28px;
 	color: #55a244;
