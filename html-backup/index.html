@@ -1,8 +1,4 @@
-<?php 
-	session_start();
-?>
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -13,34 +9,41 @@
 		<link rel="icon" sizes="192x192" href="img/iconhd.png">
 		<link rel="icon" type="image/png" href="img/fav.png">
 		<!-- Bootstrap CSS -->
-
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>    
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/getsize.js"></script>
-		<script src="js/main-controller.js"></script>
 	</head>
 <body>
-	<?php
-		include_once("php/config.php");
-		include_once("php/functions.php");
-		if(!isset($_SESSION['loggedIn'])){
-			Header("Location: login.php");
-		} else {
-			$loggedIn = $_SESSION['loggedIn'];
-			$tasklistQuery = "SELECT count(*) numberOfTasks FROM tasklist WHERE userID = '".$loggedIn."';";
-			$result = queryDb($conn, $tasklistQuery);
-			$resultObj = $result->fetch_object();
-			$numberOfTasks = $resultObj->numberOfTasks;
-			if($numberOfTasks == 0){
-				Header("Location: welcome.html");
-			}
-		}
-	?>
 	
 	<div class="container fullWidth bgImg">
-		<p>TODO INDEX PAGE</p>
+		<center>
+			<div class="wrapper">
+				<center>
+					<div class="col-xs-12 logoHolder">
+						<img class="logo" src="img/logo.png">
+					</div>
+					<div class="col-xs-12 loginForm">
+						<input class="userinput" type="username" placeholder="Username">
+						<input class="userinput" type="password" placeholder="*********">
+					</div>
+				</center>
+				<div class="col-xs-12 bottomBar">
+					<div class="col-xs-6 bottomLink" id="login">
+						<a href="welcome.html" class="bottomLink">Logga in</a>
+					</div>
+					<div class="col-xs-6 bottomLink" id="register">
+						<a href="#" class="bottomLink">Registrera</a>
+					</div>
+				</div>	
+			</div>
+		</center>
+
+		<div class="container fullWidth turnBack">
+			<center>
+				<h1 id="turnIt">Vänd tillbaka telefonen, pucko.</h1>
+			</center>
+		</div>
 	</div>
 </body>
-</html>

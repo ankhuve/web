@@ -16,34 +16,30 @@
 		<script src="getsize.js"></script>
 	</head>
 <body>
-	
-	<div class="container fullWidth bgImg">
-		<center>
-			<div class="wrapper">
-				<center>
-					<div class="col-xs-12 logoHolder">
-						<img class="logo" src="img/logo.png">
-					</div>
-					<div class="col-xs-12 loginForm">
-						<input class="userinput" type="username" placeholder="Username">
-						<input class="userinput" type="password" placeholder="*********">
-					</div>
-				</center>
-				<div class="col-xs-12 bottomBar">
-					<div class="col-xs-6 bottomLink" id="login">
-						<a href="welcome.html" class="bottomLink">Logga in</a>
-					</div>
-					<div class="col-xs-6 bottomLink" id="register">
-						<a href="#" class="bottomLink">Registrera</a>
-					</div>
-				</div>	
+	<div class="container fullWidth goalBg">
+		<div class="wrapper">
+			<div id="goalHeaders">
+				<h1 class="mdMargin center" id="chooseGoalsHeader">Skapa egna mål</h1>
+				<h2 class="thinHeader center">10 poäng per mål</h2>
 			</div>
-		</center>
-
-		<div class="container fullWidth turnBack">
-			<center>
-				<h1 id="turnIt">Vänd tillbaka telefonen, pucko.</h1>
-			</center>
 		</div>
+		<div class="goalGrid center">
+			<div class="col-xs-12 newGoalForm">
+				<input class="userinput newGoal" type="goalDescription" placeholder="T.ex. duscha fem minuter kortare.">
+				<div class="createGoal"><a href="#">Skapa</a></div>
+			</div>
+		</div>
+		<div class="bottomGreen">
+			
+			<h2 class="goalInstructions"><a href="home.html">Gå vidare</a></h2>
+			<div class="navArrows">
+				<div class="prev">
+					<a href="goals.html">
+						<img class="arrow" src="img/prev_arrow_white.png">
+					</a>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </body>
