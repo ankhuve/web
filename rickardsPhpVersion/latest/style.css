@@ -1,0 +1,182 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+.bgImg{
+	background-image: url("img/loginbg.jpg");
+	background-size: cover;
+}
+
+.container.fullWidth{
+	padding: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	overflow: hidden;
+}
+
+.logo{
+	padding-left: 20%;
+	padding-right: 20%;
+	height: 30vh;
+}
+
+.logoHolder{
+	padding-top: 5%;
+}
+
+.loginForm{
+	padding-top: 8%;
+}
+
+.userinput{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+	text-align: center;
+	margin-top: 7%;
+	color: #ffffe8;
+	width: 60%;
+	height: 8%;
+	padding: 8%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border-radius: 50px;
+	background-color: rgba(0,0,0,0);
+	border: #ffffe8 solid 2px;
+}
+
+.userinput:focus{
+	outline: none;
+}
+
+.bottomLink{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 1.4em;
+	color: #ffffe8;
+	display: inline;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.bottomLink:hover{
+	color: #e5e5e5;
+	text-decoration: none;
+}
+
+a:active, a:visited, a:link {
+    color: #ffffe8;
+    text-decoration: none;
+}
+
+/*.bottomLink#login{
+	border-right: #ffffe8 solid 1.5px;
+}*/
+
+#login{
+	padding-left: 0px;
+}
+
+#register{
+	padding-right: 0px;
+}
+
+.bottomBar{
+	margin-top: 20%;
+	bottom: 15px;
+}
+
+.turnBack{
+	background-color: black;
+	color: white;
+	display: none;
+}
+
+#welcomeText{
+	height: 50vh;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+h1{
+	margin: 0px;
+	padding-top: 20vh;
+	color: #55a244;
+	font-weight: 300;
+}
+
+h2{
+	margin: 0px;
+	padding-top: 20vh;
+	vertical-align: middle;
+	font-size: 30px;
+	color: #55a244;
+	font-weight: 100;
+}
+
+#welcomeDivider{
+	background-color: #55a244;
+	width: 100vw;
+	padding-left: 5%;
+	padding-right: 5%;
+	height: 3px;
+}
+
+.bottomWrapper{
+	background-color: #ffffe8;
+	height: 50vh;
+	width: 100vw;
+}
+
+.bottomLink {
+	color:white;
+	background-color:transparent;
+	outline:none;
+	border:none;
+}
+/*@media screen and (orientation:landscape){
+	.bgImg{
+		display: none;
+	}
+	.turnBack{
+		display:;
+	}
+	#turnIt{
+	  vertical-align: middle;
+	  text-align: center;
+	  line-height: 95vh;
+	}
+}
+
+@media screen and (orientation:portrait){
+	.bgImg{
+		display:;
+	}
+   .turnBack
+   {
+      display: none;
+   }
+}*/
+
+*::-webkit-input-placeholder {
+    color: rgba(255,255,232,0.8);
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: rgba(255,255,232,0.8);
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: rgba(255,255,232,0.8);
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(255,255,232,0.8);
+}
+
+@media screen and (min-width: 700px){
+	.wrapper{
+		width: 700px;
+	}
+}

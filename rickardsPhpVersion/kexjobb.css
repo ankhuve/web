@@ -1,0 +1,20 @@
+.centered {
+	text-align:center;
+}
+
+.btn {
+	color:black;
+}
+
+#refreshGoals:hover {
+	cursor:pointer;
+}
+
+.headline {
+	color:#13B0D4;
+	font-family: 'Roboto', 'Open Sans', Helvetica, Sans Serif;
+}
+
+.mainBody {
+	padding-bottom:40px;
+}
