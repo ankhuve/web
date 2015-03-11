@@ -26,7 +26,7 @@
 	echo "<div class='row'><center><strong>Accomplished: </strong></center></div>";
 	while($accomplished = $accomplishedObj->fetch_object()){
 		$taskID = $accomplished->id;
-		$description = $accomplished->description;
+		$description = utf8_decode($accomplished->description);
 		$points = $accomplished->points;
 		echo '<div class="row">';
 		echo '<div class="col-xs-8 col-xs-offset-2">';
@@ -41,7 +41,7 @@
 	echo "<div class='row'><center><strong>Not accomplished: </strong></center></div>";
 	while($notAccomplished = $notAccomplishedObj->fetch_object()){
 		$taskID = $notAccomplished->id;
-		$description = $notAccomplished->description;
+		$description = utf8_decode($notAccomplished->description);
 		$points = $notAccomplished->points;
 		echo '<div class="row">';
 		echo '<div class="col-xs-8 col-xs-offset-2">';

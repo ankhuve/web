@@ -21,28 +21,13 @@
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 <body>
-	<nav class="navbar navbar-default header">
-  		<div class="container-fluid">
-  			<?php
-  				include_once("php/functions.php");
-  				if(isset($_COOKIE['userID'])){
-  					echo "<p class='navbar-text'>Signed in as ".$_COOKIE['username']."</p>";
-  					echo '<button onclick="logOut()" type="button" class="btn btn-default navbar-btn">Log out</button>';
-  				} else {
-  					echo "<p class='navbar-text'> You are not logged in </p>";
-  					echo '<button onclick="toLogin()" type="button" class="btn btn-default navbar-btn">Log in</button>';
-  				}
-  			?>
-  			
-  		</div>
-  	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-2">
+			<div class="col-xs-12">
 				<center><h1> Sammanfattning </h1></center>
 			</div>
 		</div>
-		<p class="centered"> Om allting ser bra ut kan du klicka på nästa-knappen för att gå vidare och börja använda applikationen!</p>
+		<p class="centered marginTop"> Om allting ser bra ut kan du klicka på nästa-knappen för att gå vidare och börja använda applikationen!</p>
 		<div class="row">
 			<div class="col-xs-8 col-xs-offset-1">
 				<strong>Beskrivning</strong>
@@ -54,21 +39,25 @@
 		<form action="php/createTasklist.php" method="post">
 		<?php
 
-			$chosenTasks = "(".$_COOKIE['clicked'].")";
-			// echo $chosenTasks;
-			$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
-			$result = queryDb($conn, $chosenTasksQuery);
+			// echo sizeof(explode(",",$_COOKIE['clicked']));
+			if(isset($_COOKIE['clicked'])){
 
-			while($line = $result->fetch_object()){
-				$taskID = $line->id;
-				$description = utf8_encode($line->description);
-				$points = $line->points;
-				echo '<div class="row">';
-				echo '<div class="col-xs-8 col-xs-offset-1">';
-				echo "<input type='checkbox' name='taskID[]' value=$taskID checked='checked'>".$description."</input>";
-				echo '</div>';
-				echo '<div class="col-xs-2">'.$points.'</div>';
-				echo '</div>';
+				$chosenTasks = "(".$_COOKIE['clicked'].")";
+				$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
+				$result = queryDb($conn, $chosenTasksQuery);
+
+				while($line = $result->fetch_object()){
+					$taskID = $line->id;
+					$description = utf8_encode($line->description);
+					$points = $line->points;
+					echo '<div class="row">';
+					echo '<div class="col-xs-8 col-xs-offset-1">';
+					echo "<input type='checkbox' name='taskID[]' value=$taskID checked='checked'>".$description."</input>";
+					echo '</div>';
+					echo '<div class="col-xs-2">'.$points.'</div>';
+					echo '</div>';
+				}
+
 			}
 
 			$customs = $_POST['taskDesc'];
@@ -81,60 +70,8 @@
 				echo '</div>';
 				echo '<div class="col-xs-2">10</div>';
 				echo '</div>';
+				}
 			}
-			}
-
-			// for($i = 0; i++; i<$numCustoms){
-			// 	echo "Mjao";
-			// }
-
-			// echo print_r($_POST);
-
-			// $clicked = explode(",", $_COOKIE['clicked']);
-
-			// foreach($clicked as $mjao){
-			// 	echo '<input type="checkbox"></input>';
-			// };
-
-			
-			// echo $_COOKIE['clicked'];
-			// include_once("php/config.php");
-			// $chosenTasks = [];
-
-			// $_SESSION['chosenTasksArray'];
-			// if(!empty($_POST['customTaskID'])) {
-   //  			foreach($_POST['customTaskID'] as $customTask) {
-   //  				array_push($chosenTasks, $customTask);
-			// 	}
-			// }
-
-			// if(!empty($_POST['taskID'])) {
-   //  			foreach($_POST['taskID'] as $checkedTask) {
-   //  				array_push($chosenTasks, $checkedTask);
-			// 	}
-			// }
-
-			// $numberOfTasks = sizeof($chosenTasks);
-			// $tasksInString = "(";
-			// for($i = 0; $i<$numberOfTasks-1; $i++){
-			// 	$tasksInString .= $chosenTasks[$i].",";
-			// }
-			// $tasksInString .= $chosenTasks[$numberOfTasks-1].")";
-			// $chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$tasksInString.";";
-			// $result = queryDb($conn, $chosenTasksQuery);
-			// while($line = $result->fetch_object()){
-			// 	$taskID = $line->id;
-			// 	$description = $line->description;
-			// 	$points = $line->points;
-			// 	echo '<div class="row">';
-			// 	echo '<div class="col-xs-8 col-xs-offset-1">';
-			// 	echo "<input type='checkbox' name='taskID[]' value=$taskID checked='checked'>".$description;
-			// 	echo '</div>';
-			// 	echo '<div class="col-xs-2">';
-			// 	echo $points;
-			// 	echo '</div>';
-			// 	echo '</div>';
-			// }
 		?>
 		<div class="row">
 			<center>

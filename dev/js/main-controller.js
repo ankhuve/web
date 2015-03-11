@@ -28,79 +28,9 @@ $("#customGoalForm").keypress(function(e) {
     }
 });
 
-$("#addGoal").click(function(){
-    addGoalFunction(function() {
-    refreshMyGoals();
-    });
-});
-
 $("#refreshGoals").click(function(){
     refreshMyGoals();
 });
-
-// $(document).ready(function() {
-var addGoal = function(){
-    var userInput = document.getElementById("userInput").value;
-
-    $.ajax({
-        type: "POST",
-        url: 'php/addCustomGoalFunction.php',
-        data: { userInput : userInput },
-        success: function(data)
-        {
-            console.log("Success!");
-            console.log(data);
-        }
-    });
-}
-
-function addGoalFunction(callback){
-    addGoal();
-    callback();
-};
-
-
-// $("#addGoal").click(function() {
-// 	var userInput = document.getElementById("userInput").value;
-
-//     $.ajax({
-//         type: "POST",
-//         url: 'php/addCustomGoalFunction.php',
-//         data: { userInput : userInput },
-//         success: function(data)
-//         {
-//         	console.log("Success!");
-//             console.log(data);
-//         }
-//     });
-
-//     // outputCustomGoals();
-//     refreshMyGoals();
-//     document.getElementById("userInput").value = "";
-// });
-// });
-
-// ****** Typ en lite säkrare version av refreshMyGoals eller nåt... ******
-// function outputCustomGoals(){
-//     console.log("outputCustomGoals initiated!");
-// 	var xmlhttp;
-// 	xmlhttp = new XMLHttpRequest();
-
-// 	xmlhttp.onreadystatechange=function(){
-// 		if(xmlhttp.readyState==4 && xmlhttp.status==200){
-// 			document.getElementById("myCustomGoals").innerHTML = xmlhttp.responseText;
-// 		} else {
-//             console.log("readyState or status incorrect");
-//         }
-// 	}
-
-	
-// 	console.log("SENDING GET REQUEST");
-// 	xmlhttp.open("GET", "php/outputCustomGoals.php", true);
-// 	xmlhttp.send();
-
-//     console.log("outputCustomGoals complete!");
-// }
 
 function refreshMyGoals(){
     xmlhttp = new XMLHttpRequest();
@@ -158,6 +88,3 @@ function unsetCookie(cname) {
     document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-// function toNewUser(){
-//     location.href="newUser.php";
-// }

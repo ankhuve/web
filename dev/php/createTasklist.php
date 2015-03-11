@@ -1,7 +1,8 @@
 <?php
 	include_once("config.php");
 	include_once("functions.php");
-	if(!empty($_POST['taskID'])){
+	$nTotGoal = sizeof($_POST['taskID'])+sizeof($_POST['taskDesc']);
+	if($nTotGoal > 0){
 		$loggedIn = $_COOKIE['userID'];
 
 		$valueString = "";
@@ -14,25 +15,30 @@
 		$customTasks = $_POST['taskDesc'];
 		$minTaskID = generateTaskID($conn);
 
-		$newTasksQuery = "INSERT INTO task VALUES";
-		foreach($customTasks as $ct){
-			$newTasksQuery .= "(".$minTaskID.",'".utf8_encode($ct)."', 10,".$loggedIn."),";
-			$valueString .= "(".$loggedIn.",".$minTaskID."),";
-			$minTaskID += 1; 
+		if(sizeof($customTasks) > 0){
+			$newTasksQuery = "INSERT INTO task VALUES";
+			foreach($customTasks as $ct){
+				$newTasksQuery .= "(".$minTaskID.",'".utf8_decode($ct)."', 10,".$loggedIn."),";
+				$valueString .= "(".$loggedIn.",".$minTaskID."),";
+				$minTaskID += 1; 
+			}
+			$newTasksQuery = trim($newTasksQuery, ",");
+			$newTasksQuery.=";";
+			queryDb($conn, $newTasksQuery);
 		}
-		$newTasksQuery = trim($newTasksQuery, ",");
-		$newTasksQuery.=";";
-		$valueString = trim($valueString, ",");
-		$tasklistQuery = "INSERT INTO tasklist VALUES ".$valueString.";";
 
-		queryDb($conn, $newTasksQuery);
+		$valueString = trim($valueString, ",");
+		$tasklistQuery = "INSERT INTO tasklist VALUES ".$valueString.";";		
 		queryDb($conn, $tasklistQuery);
 
 		Header("Location: ../index.php");
 	} else {
-		$message = "No chosen tasks, you will be redirected to the first setup page.";
+		// Header("Location: ../goals.php");
+
+		$message = "Inga valda mål, du kommer att omdirigeras till den första intällningssidan där du kan välja mål.";
 		echo "<script type='text/javascript'>alert('$message');</script>";
-		Header("Location: ../goals.php");
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../goals.php">';
+		
 	}
 
 ?>

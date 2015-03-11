@@ -3,6 +3,10 @@ body{
 	margin: 0px;
 }
 
+.marginTop{
+	margin-top: 20px;
+}
+
 .mdMargin{
 	padding-top: 40px;
 }
