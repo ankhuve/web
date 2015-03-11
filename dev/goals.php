@@ -41,7 +41,6 @@
 			</div>
 			<div class="next">
 				<a href="create.php">
-				<!-- <a href="#"> -->
 					<img class="arrow toCustomGoals" src="img/arrow_white.png">
 				</a>
 			</div>

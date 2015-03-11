@@ -1,7 +1,9 @@
 <?php 
-	session_start();
+	if(isset($_COOKIE['userID'])){
+		Header("Location: index.php");
+	}
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -20,12 +22,8 @@
 		<script src="js/main-controller.js"></script>
 	</head>
 <body>
-	
 	<div class="container fullWidth bgImg">
-		<?php 
-      	if(!isset($_SESSION['loggedIn'])){
-        	echo '	
-    	<center>
+		<center>
 			<div class="wrapper">
 				<center>
 					<div class="col-xs-12 logoHolder">
@@ -38,22 +36,12 @@
 						</div>
 					
 						<div class="col-xs-12 bottomBar" id="loginOrRegister">';
-						if(isset($_SESSION['wrongPassword'])){
-							if($_SESSION['wrongPassword']){
-								echo '<div class="col-xs-6 col-xs-offset-3 bottomLink">';
-								echo "Oops, felaktigt lösenord";
-								echo '</div>';
-							}
-						}
-					echo'</div>
+						</div>
+						
 					</form>
 				</center>
 			</div>
-		</center>';
-	    } else {
-	      Header("Location: index.php");
-    	}; 
-    	?>
+		</center>
 	</div>
 </body>
 </html>

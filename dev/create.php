@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -26,30 +29,34 @@
 			</div>
 		</div>
 
-		<div class="goalGrid center">
-			
-			<div class="col-xs-12 newGoalForm">
-				<input class="userinput newGoal" id="goalInput" type="goalDescription" placeholder="T.ex. duscha fem minuter kortare.">
-				<div class="createGoal" id="createGoalButton" onclick="createGoal()">Skapa</div>
-			</div>
-			<span class="createdGoals"></span>
-		</div>
-
-
-		<div class="bottomGreen">
-			
-			<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
-			<div class="navArrows">
-				<div class="prev">
-					<a href="goals.php">
-						<img class="arrow" src="img/prev_arrow_white.png">
-					</a>
+		<form action="summary.php" method="post">
+			<div class="goalGrid center">
+				
+				<div class="col-xs-12 newGoalForm">
+					<input class="userinput newGoal" id="goalInput" type="goalDescription" placeholder="T.ex. duscha fem minuter kortare.">
+					<div class="createGoal" id="createGoalButton" onclick="createGoal()">Skapa</div>
 				</div>
+
+				<span class="createdGoals">
+
+				</span>
 			</div>
-				<a href="index.php">
-					<span class="doneLink">Klar!</span>
-				</a>
-		</div>
+
+
+			<div class="bottomGreen">
+				
+				<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
+				<div class="navArrows">
+					<div class="prev">
+						<a href="goals.php">
+							<img class="arrow" src="img/prev_arrow_white.png">
+						</a>
+					</div>
+				</div>
+				
+				<input type="submit" value="Klar!" class="doneLink"></input>
+			</div>
+		</form>
 
 	</div>
 </body>

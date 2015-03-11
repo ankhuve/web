@@ -1,8 +1,8 @@
 <?php
-	$hostname = 'rickard-202881.mysql.binero.se';
-	$username = '202881_sq75951';
-	$password = 'ErdickProgramming1';
-	$database = '202881-rickard';
+	$hostname = 'localhost';
+	$username = 'eforsbe';
+	$password = 'eforsbe-xmlpub13';
+	$database = 'eforsbe';
 
 	$desiredUsername = $_POST['username'];
 	$desiredPassword = $_POST['password'];

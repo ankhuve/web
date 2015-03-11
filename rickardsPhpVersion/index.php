@@ -2,6 +2,20 @@
 	session_start(); 
 	include_once("php/functions.php");
 	include_once("php/config.php");
+
+	if(!isset($_SESSION['loggedIn'])){
+		header("Location: login.php");
+	} else {
+		$loggedIn = $_SESSION['loggedIn'];
+		$tasklistQuery = "SELECT count(*) numberOfTasks FROM tasklist WHERE userID = '".$loggedIn."';";
+		$result = queryDb($conn, $tasklistQuery);
+		$resultObj = $result->fetch_object();
+		$numberOfTasks = $resultObj->numberOfTasks;
+		if($numberOfTasks == 0){
+			Header("Location: setup.php");
+		}
+
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -39,19 +53,19 @@
   		</div>
   	</nav>
 	<?php
-		if(!isset($_SESSION['loggedIn'])){
-			header("Location: login.php");
-		} else {
-			$loggedIn = $_SESSION['loggedIn'];
-			$tasklistQuery = "SELECT count(*) numberOfTasks FROM tasklist WHERE userID = '".$loggedIn."';";
-			$result = queryDb($conn, $tasklistQuery);
-			$resultObj = $result->fetch_object();
-			$numberOfTasks = $resultObj->numberOfTasks;
-			if($numberOfTasks == 0){
-				Header("Location: setup.php");
-			}
+		// if(!isset($_SESSION['loggedIn'])){
+		// 	header("Location: login.php");
+		// } else {
+		// 	$loggedIn = $_SESSION['loggedIn'];
+		// 	$tasklistQuery = "SELECT count(*) numberOfTasks FROM tasklist WHERE userID = '".$loggedIn."';";
+		// 	$result = queryDb($conn, $tasklistQuery);
+		// 	$resultObj = $result->fetch_object();
+		// 	$numberOfTasks = $resultObj->numberOfTasks;
+		// 	if($numberOfTasks == 0){
+		// 		Header("Location: setup.php");
+		// 	}
 
-		}
+		// }
 	?>
 	<div class="container-fluid">
 		<div class="row">

@@ -10,12 +10,14 @@
 		$id = login($conn, $username, $password);
 		if(!is_null($id)){
 
-			if(isset($_SESSION['wrongPassword'])){
-				unset($_SESSION['wrongPassword']);
+			if(isset($_POST['wrongPassword'])){
+				unset($_POST['wrongPassword']);
 			}
 
-			$_SESSION['loggedIn'] = $id;
-			$_SESSION['username'] = $username;
+			setcookie("userID", $id, time() + (86400 * 10), "/");
+			setcookie("username", $username, time() + (86400 *  10), "/");
+			// $_SESSION['loggedIn'] = $id;
+			// $_SESSION['username'] = $username;
 
 			$getUserTasks = "SELECT count(*) numTasks FROM tasklist JOIN task ON tasklist.taskID= task.id WHERE tasklist.userID =".$id.";";
 			$resultObj = queryDb($conn, $getUserTasks);
@@ -30,13 +32,14 @@
 				Header("Location: ../index.php");
 			}
 		} else {
-			$_SESSION['wrongPassword'] = true;
+			// $_SESSION['wrongPassword'] = true;
+			$_POST['wrongPassword'] = true;
 			Header("Location: ../login.php");
 		}
 	} else if (isset($_POST['register'])){
 
-		if(isset($_SESSION['wrongPassword'])){
-			unset($_SESSION['wrongPassword']);
+		if(isset($_POST['wrongPassword'])){
+			unset($_POST['wrongPassword']);
 		}
 
 		$newUserID = generateUserID($conn);
@@ -45,9 +48,11 @@
 		$newUserQuery = "INSERT INTO user VALUES(".$newUserID.",'".$username."','".$hashedPassword."');";
 
 		queryDb($conn, $newUserQuery);
-
-    	$_SESSION['loggedIn'] = $id;
-    	$_SESSION['username'] = $username;
+		
+		setcookie("userID", $newUserID, time() + (86400 * 10), "/");
+		setcookie("username", $username, time() + (86400 *  10), "/");
+    	// $_SESSION['loggedIn'] = $id;
+    	// $_SESSION['username'] = $username;
     	header("Location: ../welcome.html");
 	} else {
 		echo "WHAT THE FUCK ARE YOU DOING HERE?!";
