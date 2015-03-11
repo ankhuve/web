@@ -1,6 +1,3 @@
-<?php 
-	session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -19,13 +16,14 @@
 		<script src="js/getsize.js"></script>
 		<script src="js/createGoal.js"></script>
 	</head>
-<body>
+<body onload="updateChosen()">
 	<div class="container fullWidth goalBg">
 
 		<div class="wrapper">
 			<div id="goalHeaders">
 				<h1 class="mdMargin center" id="chooseGoalsHeader">Skapa egna mål</h1>
 				<h2 class="thinHeader center">10 poäng per mål</h2>
+				<h2> Du har total valt <span id="totalGoals"></span>/5 mål. </h2>
 			</div>
 		</div>
 

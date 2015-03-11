@@ -36,13 +36,17 @@ $(window).load(function(){
 				}
 			}
 			if (!found){
-				clicked.push($(this).attr("id"));
-				$(this).find(">:first-child").animate({opacity:'0.5'},200);
-				$('<div class="confirmBox" id='+$(this).attr("id")+'>').appendTo(this);
-				$("#"+$(this).attr("id")+".confirmBox").show(200);
-				$( "div.confirmBox" ).click(function() {
-					$(this).remove();
-				})
+				if(clicked.length != 5){
+					clicked.push($(this).attr("id"));
+					$(this).find(">:first-child").animate({opacity:'0.5'},200);
+					$('<div class="confirmBox" id='+$(this).attr("id")+'>').appendTo(this);
+					$("#"+$(this).attr("id")+".confirmBox").show(200);
+					$( "div.confirmBox" ).click(function() {
+						$(this).remove();
+					})
+				} else {
+					alert("Du har redan valt 5/5 mål.");
+				}
 			}else{
 				var index = clicked.indexOf($(this).attr("id"));
 				$(this).find(">:first-child").animate({opacity:'1'},200);
@@ -53,31 +57,14 @@ $(window).load(function(){
 
 			document.getElementById("numChosenGoals").innerHTML=clicked.length;
 		});
-	}
-	console.log(document.cookie);
+	};
+
 	$(".toCustomGoals").click(function(){
 		
 		// Cookien tas bort en timma efter att den satts
 		var expireTime = new Date(new Date().getTime() + 1000*60*60);
-		document.cookie = "clicked="+clicked+"; expires="+expireTime;
-	})
-})
-
-
-// var makeTasklist = function(){
-// 		// Hämta de förbestämda målen från databasen
-//     if (window.XMLHttpRequest) {
-//         // code for IE7+, Firefox, Chrome, Opera, Safari
-//         xmlhttp2 = new XMLHttpRequest();
-//     } else {
-//         // code for IE6, IE5
-//         xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
-//     }
-//     xmlhttp.onreadystatechange = function() {
-//         if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
-//             createGoals(xmlhttp2.responseText);
-//         }
-//     }
-//     xmlhttp2.open("GET","php/makeTasklist.php",true);
-//     xmlhttp2.send();
-// }
+		if(clicked.length != 0){
+			document.cookie = "clicked="+clicked+"; expires="+expireTime;
+		};
+	});
+});
