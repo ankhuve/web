@@ -35,7 +35,7 @@
 							<input class="userinput" type="password" name="password" placeholder="*********">
 						</div>
 					
-						<div class="col-xs-12 bottomBar" id="loginOrRegister">';
+						<div class="col-xs-12 bottomBar" id="loginOrRegister">
 						</div>
 						
 					</form>

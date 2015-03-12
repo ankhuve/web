@@ -114,14 +114,20 @@ body{
 
 .bottomLink{
 	font-family: 'Roboto', sans-serif;
-	font-weight: 100;
+	background-color: #55a244;
+	border: none;
+	font-weight: 300;
 	font-size: 1.4em;
 	color: #ffffe8;
-	display: inline;
+	/*display: inline;*/
 	text-align: center;
+	border-radius: 50px;
 	vertical-align: middle;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	height: 8%;
 }
 
 .bottomLink:hover{
@@ -129,7 +135,12 @@ body{
 	text-decoration: none;
 }
 
-.loginRegister {
+.removeInputStyling{
+	background-color: transparent;
+	border: none;
+}
+
+/*.loginRegister {
 	background-color:transparent;
 	color:white;
 	border-radius:30px;
@@ -138,25 +149,11 @@ body{
 	text-align: center;
 	min-width: 150px;
 
-}
+}*/
 
 a:active, a:visited, a:link {
     color: #ffffe8;
     text-decoration: none;
-}
-
-.bottomLink#login{
-	background-color:transparent;
-	/*border-right: #ffffe8 solid 1.5px;*/
-
-}
-
-#login{
-	padding-left: 0px;
-}
-
-#register{
-	padding-right: 0px;
 }
 
 .bottomBar{
@@ -171,7 +168,8 @@ a:active, a:visited, a:link {
 }
 
 #welcomeText{
-	height: 50vh;
+	font-weight: 400;
+	padding-top: 20vh;
 	padding-left: 5%;
 	padding-right: 5%;
 }
@@ -191,13 +189,17 @@ h2{
 	vertical-align: middle;
 	font-size: 28px;
 	color: #55a244;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 #welcomeDivider{
 	background-color: #55a244;
 	width: 100vw;
 	height: 3px;
+}
+
+.welcomeInstructions{
+	padding-top: 10vh;
 }
 
 .bottomWrapper{
@@ -278,12 +280,23 @@ h2{
 }
 
 .goalGrid div p{
-	padding-top: 35%;
+	padding-top: 5%;
 	color: #ffffe8;
 }
 
 .goalButton{
-	height: 20vh
+	-moz-background-clip: padding;     /* Firefox 3.6 */
+	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+	background-clip: padding-box;
+	height: 20vh;
+	line-height: 1.2;
+	background-color: rgba(85, 162, 68, 0.8);
+	border: solid 5px rgba(255, 255, 255, 0.01);
+}
+
+.taskPoints{
+	position: absolute;
+	bottom: 10px;
 }
 
 .row{
@@ -372,11 +385,18 @@ h2{
 }
 
 @media screen and (min-width: 700px){
-	.wrapper{
+	.topHalfWrapper{
 		width: 700px;
 	}
 }
 
-.wrapper{
+@media screen and (max-width: 359px){
+	.welcomeInstructions{
+		font-size: 24px;
+	}
+}
+
+.topHalfWrapper{
 	width: 100vw;
+	height: 50vh;
 }
