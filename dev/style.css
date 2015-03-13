@@ -89,11 +89,12 @@ body{
 
 .createGoal{
 	/*height: 30pt;*/
+	background-color: #55a244;
 	color: #ffffe8;
 	margin-top: 30px;
-	font-size: 24pt;
+	font-size: 22pt;
 	font-weight: 300;
-	border: 2px solid white;
+	/*border: 2px solid white;*/
 	border-radius: 30px;
 	height: 120%;
 	width: 80%;
@@ -102,10 +103,26 @@ body{
 }
 
 .createdGoals {
+	width: 100vw;
 	color:white;
 	font-size:16px;
 	/*SYNK*/
 	overflow: scroll;
+	text-align: left;
+}
+
+.noMargin{
+	margin: 0px;
+}
+
+.ownGoal{
+	margin-left: 7vw;
+	margin-right: 7vw;
+}
+
+.glyphicon-remove{
+	padding-left: 10px;
+	color: #990f0f;
 }
 
 .userinput:focus{
@@ -192,6 +209,17 @@ h2{
 	font-weight: 300;
 }
 
+h3{
+	margin: 0px;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-top: 10px;
+	vertical-align: middle;
+	font-size: 18px;
+	color: #55a244;
+	font-weight: 500;
+}
+
 #welcomeDivider{
 	background-color: #55a244;
 	width: 100vw;
@@ -217,13 +245,13 @@ h2{
 .prev{
 	position: absolute;
 	height: 40px;
-	left: 25px;
+	left: 20px;
 }
 
 .next{
 	position: absolute;
 	height: 40px;
-	right: 25px;
+	right: 20px;
 }
 
 .arrow{
@@ -277,12 +305,19 @@ h2{
 	height: 55vh; 
 	bottom: 17vh;
 	overflow: scroll;
-}
-
-.goalGrid div p{
-	padding-top: 5%;
 	color: #ffffe8;
 }
+
+.bottomFix{
+	bottom: 13vh;
+}
+
+.increasedPadding{
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+
 
 .goalButton{
 	-moz-background-clip: padding;     /* Firefox 3.6 */
@@ -290,13 +325,21 @@ h2{
 	background-clip: padding-box;
 	height: 20vh;
 	line-height: 1.2;
-	background-color: rgba(85, 162, 68, 0.8);
-	border: solid 5px rgba(255, 255, 255, 0.01);
+	background-color: rgba(55, 55, 55, 0.3);
+	border: solid 3px rgba(255, 255, 255, 0.01);
+	padding: 2px;
+	padding-top: 5px;
+	text-align: center;
 }
 
 .taskPoints{
 	position: absolute;
-	bottom: 10px;
+	text-align: center;
+	bottom: 3px;
+	left: 10%;
+	right: 10%;
+	color:white;
+	font-weight: bold;
 }
 
 .row{
@@ -305,14 +348,12 @@ h2{
 
 .confirmBox{
 	display: none;
-	background: url('img/check_green_faded.png');
-	background-position: top;
+	background: url('img/check_light_green.png');
+	background-position: center;
 	background-size: 10vh 10vh;
-	vertical-align: middle;
 	background-repeat: no-repeat;
-	height: inherit;
+	height: 100%;
 	position: relative;
-	top: -11vh;
 }
 
 .nextText{
@@ -328,21 +369,13 @@ h2{
 	padding: 0px;
 }
 
-.taskPoints {
-	color:white;
-	font-weight: bold;
-	text-align:center;
-}
-
 .doneLink {
 	color:white;
-	float: right;
-	margin-right: 8vw;
 	font-size: 25px;
-	margin-top: 10%;
-	text-decoration: underline;
-	background-color:transparent;
 	border:none;
+	border-bottom: 1px dotted;
+	background-color:transparent;
+	
 }
 /*@media screen and (orientation:landscape){
 	.bgImg{
@@ -393,6 +426,16 @@ h2{
 @media screen and (max-width: 359px){
 	.welcomeInstructions{
 		font-size: 24px;
+	}
+
+	.goalInstructions{
+		font-size: 22px;
+	}
+}
+
+@media screen and (max-width: 319px){
+	.goalInstructions{
+		font-size: 20px;
 	}
 }
 

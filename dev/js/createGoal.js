@@ -9,8 +9,11 @@ $(document).ready(function() {
 });
 
 var customGoals = 0;
-var predefinedGoals = getCookie('clicked').split(",").length;
-// console.log($("#totalGoals"));
+if(getCookie("clicked")===""){
+	predefinedGoals = 0;
+}else{
+	var predefinedGoals = getCookie('clicked').split(",").length;
+}
 var updateChosen = function(){
 	document.getElementById("totalGoals").innerHTML = customGoals+predefinedGoals;
 }
@@ -20,7 +23,7 @@ var createGoal = function(){
 	var userInput = document.getElementById("goalInput").value;
 	if(userInput != ''){
 		if(customGoals + predefinedGoals < 5){
-			$(".createdGoals").append('<p><input type="checkbox" name="taskDesc[]" value="'+userInput+'" checked="checked">'+userInput+'</input><span  onclick="removeCustom(this)" class="glyphicon glyphicon-remove" style="color:red;"></span></p>');
+			$(".createdGoals").append('<p class="noMargin ownGoal"><input type="checkbox" name="taskDesc[]" value="'+userInput+'" checked="checked">'+userInput+'</input><span  onclick="removeCustom(this)" class="glyphicon glyphicon-remove"></span></p>');
 			document.getElementById("goalInput").value = "";
 			document.getElementById("goalInput").focus();
 			customGoals += 1;
@@ -32,7 +35,7 @@ var createGoal = function(){
 }
 
 var removeCustom = function(tag){
-	tag.parentNode.innerHTML = "";
+	tag.parentNode.remove();
 	customGoals -= 1;
 	updateChosen();
 }

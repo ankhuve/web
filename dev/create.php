@@ -23,7 +23,7 @@
 			<div id="goalHeaders">
 				<h1 class="mdMargin center" id="chooseGoalsHeader">Skapa egna mål</h1>
 				<h2 class="thinHeader center">10 poäng per mål</h2>
-				<h2> Du har total valt <span id="totalGoals"></span>/5 mål. </h2>
+				<h3 class="center"> Du har total valt <span id="totalGoals"></span>/5 mål</h3>
 			</div>
 		</div>
 
@@ -35,24 +35,27 @@
 					<div class="createGoal" id="createGoalButton" onclick="createGoal()">Skapa</div>
 				</div>
 
-				<span class="createdGoals">
-
-				</span>
+				<div class="createdGoals">
+					<!-- Created goals go here -->
+				</div>
 			</div>
 
 
 			<div class="bottomGreen">
 				
 				<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
-				<div class="navArrows">
+				<div class="navArrows bottomFix">
 					<div class="prev">
 						<a href="goals.php">
 							<img class="arrow" src="img/prev_arrow_white.png">
 						</a>
 					</div>
+					<div class="next">
+						<input type="submit" value="Klar!" class="doneLink">
+					</div>
 				</div>
 				
-				<input type="submit" value="Klar!" class="doneLink"></input>
+				
 			</div>
 		</form>
 

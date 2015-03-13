@@ -33,8 +33,8 @@
 		</div>
 		<div class="bottomGreen">
 			
-			<h2 class="goalInstructions">Välj några mål eller gå vidare och skapa egna</h2>
-			<div class="navArrows">
+			<h2 class="goalInstructions increasedPadding">Välj några mål eller gå vidare och skapa egna</h2>
+			<div class="navArrows bottomFix">
 			<div class="prev">
 				<a href="welcome.html">
 					<img class="arrow" src="img/prev_arrow_white.png">
