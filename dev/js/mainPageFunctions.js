@@ -3,28 +3,37 @@ window.onload = function() {
 	generateMyGoals();
 	generateTotalHighscore();
 	generateDailyHighscore();
-	$("#goalView").show();
-	$("#highscoreView").hide();
-	$("#statsView").hide();
+	showMyGoals();
 };
 
 function showMyGoals(){
 	$("#goalView").show();
 	$("#highscoreView").hide();
-	$("#statsView").hide();
+	$("#statsView").hide()
+	$(".highscore").css({backgroundColor: ''});
+	$(".goals").css({backgroundColor: 'rgb(65, 65, 65)'});
+	$(".stats").css({backgroundColor: ''});
 	generateMyGoals();
+
 }
 
 function showHighscore(){
 	$("#highscoreView").show();
 	$("#goalView").hide();
 	$("#statsView").hide();
+	$(".highscore").css({backgroundColor: 'rgb(65, 65, 65)'});
+	$(".stats").css({backgroundColor: ''});
+	$(".goals").css({backgroundColor: ''});
+
 }
 
 function showMyStats(){
 	$("#statsView").show();
 	$("#goalView").hide();
 	$("#highscoreView").hide();
+	$(".highscore").css({backgroundColor: ''});
+	$(".goals").css({backgroundColor: ''});
+	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
 }
 
 
@@ -61,7 +70,7 @@ function changeAccomplished(tag){
 	
 	if(checked){// UNACCOMPLISH ME
 		tag.childNodes[0].checked = false;
-		tag.style.color = "red";
+		tag.style.color = "#ffffe8";
 	    $.ajax({
 	        type: "POST",
 	        url: 'php/unAccomplishGoal.php',

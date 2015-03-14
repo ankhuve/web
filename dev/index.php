@@ -28,7 +28,8 @@
 
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'> 
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>   
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>  
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> 
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/getsize.js"></script>
@@ -37,7 +38,7 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<nav class="container fullWidth indexHeader">
+	<nav class="indexHeader">
   		<!-- <div class="container-fluid"> -->
 		<img class="menuButton" src="img/menu.png">
 		<div class="headerTitle">
@@ -59,12 +60,7 @@
 		<div class="mainBody">
 			<div id="goalView">
 				<div id="myTasks" onload="generateMyGoals()">
-
-				</div>
-				<div class="row">
-					<div class="col-xs-8 col-xs-offset-2">
-						<center><button class="btn" onclick="generateMyGoals()">Refresh goals</button></center>
-					</div>
+					<!-- Tasks go here -->
 				</div>
 			</div>
 			<div id="highscoreView">
@@ -95,11 +91,14 @@
 			<div id="statsView">
 				<center><h2 class="headline">Stats go here</h2></center>
 			</div>
-			<center>
-				<button class="btn" onclick="showMyGoals()">Mina mål</button>
-				<button class="btn" onclick="showHighscore()">Highscore</button>
-				<button class="btn" onclick="showMyStats()">Stats</button>
-			</center>
+			<div class="footer">
+				<div class="tab myGoals" onclick="showMyGoals()">
+				</div>
+				<div class="tab highScore" onclick="showHighscore()">
+				</div>
+				<div class="tab stats" onclick="showMyStats()">
+				</div>
+			</div>
 		</div>
 
 	</div>
