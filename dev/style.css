@@ -5,6 +5,7 @@ body{
 
 .marginTop{
 	margin-top: 20px;
+	color: #ffffe8;
 }
 
 .mdMargin{
@@ -30,6 +31,14 @@ body{
 	background-image: url("img/goalbg_wide.jpg");
 	background-size: cover;
 	background-position: center;
+}
+
+.summaryBg{
+	background-image: url("img/small_leaves.jpg");
+	min-height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 15% 20vh;
 }
 
 .container.fullWidth{
@@ -111,6 +120,10 @@ body{
 	text-align: left;
 }
 
+.createdGoals input{
+	display: none;
+}
+
 .noMargin{
 	margin: 0px;
 }
@@ -121,7 +134,7 @@ body{
 }
 
 .glyphicon-remove{
-	padding-left: 10px;
+	padding-right: 10px;
 	color: #990f0f;
 }
 
@@ -254,6 +267,11 @@ h3{
 	right: 20px;
 }
 
+.nextButton{
+	position: absolute;
+	bottom: 10vh;
+}
+
 .arrow{
 	height: 40px;
 }
@@ -342,8 +360,29 @@ h3{
 	font-weight: bold;
 }
 
+.taskDescription{
+	padding-bottom: 20px;
+}
+
+#ownGoalPoints{
+	color:white;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
 .row{
+	color: #ffffe8;
 	margin: 0px;
+	padding-bottom: 1vh;
+}
+
+.titles{
+	margin-top: 10px;
+}
+
+.allGoals{
+	overflow: scroll;
+	max-height: 50vh;
 }
 
 .confirmBox{
@@ -431,15 +470,156 @@ h3{
 	.goalInstructions{
 		font-size: 22px;
 	}
+
+	.row{
+		padding-bottom: 0;
+	}
+
 }
 
 @media screen and (max-width: 319px){
 	.goalInstructions{
 		font-size: 20px;
 	}
+
+
 }
 
 .topHalfWrapper{
 	width: 100vw;
 	height: 50vh;
+}
+
+.headerBg{
+	background-color: #55a244;
+	height: 20vh;
+}
+
+.headerBg h1{
+	padding-top: 8vh;
+	text-transform: uppercase;
+	font-size: 32px;
+	font-weight: 200;
+	color: #ffffe8;
+}
+
+@media screen and (min-width: 321px){
+	.headerBg h1{
+		font-size: 36px;
+	}
+}
+
+.toIndex{
+	position: absolute;
+	bottom: 30px;
+	padding-top: 0;
+	padding-bottom: 0; 
+	width: 50vw;
+	height: 45px;
+	left: 25vw;
+}
+
+.toIndex input{
+	padding-top: 7px;
+	vertical-align: middle;
+}
+
+@media screen and (max-height: 540px){
+	.toIndex{
+		font-size: bottom: 5px;
+	}
+}
+
+input.marginRight{
+	margin: 0;
+	margin-right: 15px;
+}
+
+.totalPoints{
+	position: relative;
+	color: #ffffe8;
+	font-size: 16px;
+	width: 80vw;
+	left: 10vw;
+	text-align: center;
+}
+
+.indexHeader{
+	background-color: rgb(33, 33, 33);
+	min-height: 60px;
+	max-height: 60px;
+	width: 100vw;
+	position: absolute;
+	display: inline-block;
+}
+
+.menuButton{
+	display: inline;
+	height: 30px;
+	width: 30px;
+	margin: 15px;
+}
+
+.headerTitle{
+	position: absolute;
+	top: 0px;
+	left: 60px;
+	margin-top: 5px;
+	min-width: 80vw;
+	font-size: 36px;
+	font-family: "Open Sans";
+	font-weight: 300;
+	color: #55a244;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.Mina_mål {
+  font-size: 38px;
+  font-family: "Open Sans";
+  color: rgb(100, 187, 80);
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  left: 64.491px;
+  top: 12.88px;
+  width: 164px;
+  height: 34px;
+  z-index: 52;
+}
+
+.container.offsetHeader{
+	padding-top: 60px;
+}
+
+.goal{
+	width: 100vw;
+	height: 80px;
+	background-color: #55a244;
+	display: inline-block;
+	border-bottom: solid 1px rgb(33, 33, 33);
+}
+
+.pointCircle{
+	background-color: rgb(33, 33, 33);
+	border-radius: 25px;
+	height: 50px;
+	width: 50px;
+	margin-left: 15px;
+	margin-top: 10px;
+	float: left;
+}
+
+.points{
+	color: #ffffe8;
+	height: inherit;
+	width: inherit;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.description{
+	float: left;
+	width: 70vw;
+
 }
