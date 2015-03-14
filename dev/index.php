@@ -27,7 +27,8 @@
 		<!-- Bootstrap CSS -->
 
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>    
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'> 
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>   
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/getsize.js"></script>
@@ -36,36 +37,27 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<nav class="navbar navbar-default header">
-  		<div class="container-fluid">
-  			<?php
-  				if(isset($_COOKIE['username'])){
-  					echo "<p class='navbar-text'>Inloggad som ".$_COOKIE['username']."</p>";
-  					echo '<button onclick="logOut()" type="button" class="btn btn-default navbar-btn">Logga ut</button>';
-  				} else {
-  					echo "<p class='navbar-text'> You are not logged in </p>";
-  					echo '<button onclick="toLogin()" type="button" class="btn btn-default navbar-btn">Logga in</button>';
-  				}
-  			?>
-  			
-  		</div>
-  	</nav>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-8 col-xs-offset-2">
-				<center><h1> Välkommen <?php echo $_COOKIE['username']; ?></h1></center>
-			</div>
+	<nav class="container fullWidth indexHeader">
+  		<!-- <div class="container-fluid"> -->
+		<img class="menuButton" src="img/menu.png">
+		<div class="headerTitle">
+			Mina mål
 		</div>
-		<div class="row mainBody">
-			<center>
-				<button class="btn" onclick="showMyGoals()">Mina mål</button>
-				<button class="btn" onclick="showHighscore()">Highscore</button>
-				<button class="btn" onclick="showMyStats()">Stats</button>
-			</center>
+		<!-- <?php
+			if(isset($_COOKIE['username'])){
+				echo "<p class='navbar-text'>Inloggad som ".$_COOKIE['username']."</p>";
+				echo '<button onclick="logOut()" type="button" class="btn btn-default navbar-btn">Logga ut</button>';
+			} else {
+				echo "<p class='navbar-text'> You are not logged in </p>";
+				echo '<button onclick="toLogin()" type="button" class="btn btn-default navbar-btn">Logga in</button>';
+			}
+		?> -->
+  			
+  		<!-- </div> -->
+  	</nav>
+	<div class="container fullWidth offsetHeader">
+		<div class="mainBody">
 			<div id="goalView">
-				<div class="row">
-					<center><h2 class="headline">Mina mål</h2></center>
-				</div>
 				<div id="myTasks" onload="generateMyGoals()">
 
 				</div>
@@ -103,7 +95,11 @@
 			<div id="statsView">
 				<center><h2 class="headline">Stats go here</h2></center>
 			</div>
-
+			<center>
+				<button class="btn" onclick="showMyGoals()">Mina mål</button>
+				<button class="btn" onclick="showHighscore()">Highscore</button>
+				<button class="btn" onclick="showMyStats()">Stats</button>
+			</center>
 		</div>
 
 	</div>

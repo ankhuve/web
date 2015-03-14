@@ -30,13 +30,10 @@
 		$taskID = $accomplished->id;
 		$description = utf8_encode($accomplished->description);
 		$points = $accomplished->points;
-		echo '<div class="row">';
-		echo '<div class="col-xs-8 col-xs-offset-1" onclick="changeAccomplished(this)" style="color:green;">';
-		echo '<input type="checkbox" value="'.$taskID.'" onclick="checkboxTrigger(this)" checked="checked">';
+		echo '<div class="goal">';
+		echo '<div class="pointCircle"><div class="points">'.$points.'p</div></div>';
+		echo '<div class="description" onclick="changeAccomplished(this)" style="color:green;">';
 		echo $description;
-		echo '</div>';
-		echo '<div class="col-xs-2 centered">';
-		echo $points;
 		echo '</div>';
 		echo '</div>';
 	}
@@ -45,13 +42,10 @@
 		$taskID = $notAccomplished->id;
 		$description = utf8_encode($notAccomplished->description);
 		$points = $notAccomplished->points;
-		echo '<div class="row">';
-		echo '<div class="col-xs-8 col-xs-offset-1" onclick="changeAccomplished(this)" style="color:red;">';
-		echo '<input type="checkbox" value="'.$taskID.'" onclick="checkboxTrigger(this)">';
+		echo '<div class="goal">';
+		echo '<div class="pointCircle"><div class="points">'.$points.'p</div></div>';
+		echo '<div class="description" onclick="changeAccomplished(this)" style="color:red;">';
 		echo $description;
-		echo '</div>';
-		echo '<div class="col-xs-2 centered">';
-		echo $points;
 		echo '</div>';
 		echo '</div>';
 	}

@@ -23,7 +23,7 @@ var createGoal = function(){
 	var userInput = document.getElementById("goalInput").value;
 	if(userInput != ''){
 		if(customGoals + predefinedGoals < 5){
-			$(".createdGoals").append('<p class="noMargin ownGoal"><input type="checkbox" name="taskDesc[]" value="'+userInput+'" checked="checked">'+userInput+'</input><span  onclick="removeCustom(this)" class="glyphicon glyphicon-remove"></span></p>');
+			$(".createdGoals").append('<p class="noMargin ownGoal"><span  onclick="removeCustom(this)" class="glyphicon glyphicon-remove"></span><input type="checkbox" name="taskDesc[]" value="'+userInput+'" checked="checked">'+userInput+'</input><span id="ownGoalPoints">10 p</span></p>');
 			document.getElementById("goalInput").value = "";
 			document.getElementById("goalInput").focus();
 			customGoals += 1;
