@@ -36,6 +36,8 @@
 		<script src="js/main-controller.js"></script>
 		<script src="js/mainPageFunctions.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">google.load('visualization', '1.0', {'packages':['corechart']});</script>
 	</head>
 <body>
 	<nav class="indexHeader">
@@ -77,7 +79,22 @@
 			</div>
 
 			<div id="statsView">
-				<!-- Stats go here -->
+				<div id="myStats">
+					<div class="dailyStats">
+						<div class="description">Daglig statistik</div>
+						<div class="pieChart" id="myDailyStats">
+							<!-- Pie chart goes here -->
+						</div>
+					</div>
+					<div class="totalStats">
+						<div class="description">Total statistik</div>
+						<div class="pieChart" id="myTotalStats">
+							<!-- Pie chart goes here -->
+						</div>
+					</div>
+					
+					<!-- Stats go here -->
+				</div>
 			</div>
 
 			<div class="footer">

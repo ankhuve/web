@@ -4,13 +4,68 @@ window.onload = function() {
 	generateTotalHighscore();
 	generateDailyHighscore();
 	showMyGoals();
+	getMyStats();
+	
 };
+
+function getMyStats(){
+	google.load("visualization", "1", {packages:["corechart"]});
+    $.ajax({
+    	type: "GET",
+        url: 'php/generateMyStats.php',
+        success: function(data){
+        	console.log(data);
+        	generateMyStats(data);	
+        }
+    });
+}
+
+function generateMyStats(data){
+	var accomplished = data.split(",")[0];
+	var available = data.split(",")[1];
+	var accomplishedEver = data.split(",")[2];
+	var possibleEver = data.split(",")[3];
+	// console.log(accomplished+"/"+available+" Totalt: "+accomplishedEver+" av möjliga: "+possibleEver);
+	// $("#myStats").html("<p style='color: white'>"+accomplished+"/"+available+"</p>");
+	drawStats(accomplished, available, accomplishedEver, possibleEver);
+}
+
+function drawStats(completed, total, completedEver, totalEver){
+	
+	var data = google.visualization.arrayToDataTable([
+	  ['Avklarade', 'Poäng'],
+	  ['Avklarade poäng', parseInt(completed)],
+	  ['Missade poäng', parseInt(parseInt(total)-parseInt(completed))]
+	]);
+
+	var dataTotal = google.visualization.arrayToDataTable([
+		['Avklarade', 'Poäng'],
+		['Avklarade poäng', parseInt(completedEver)],
+		['Missade poäng', parseInt(parseInt(totalEver)-parseInt(completedEver))]
+	]);
+
+	var options = {
+		legend: 'none',
+		slices: {
+			0: {color: 'rgb(100, 187, 80)'},
+			1: {offset: 0.1}},
+		backgroundColor: 'rgb(33, 33, 33)',
+		pieSliceBorderColor: 'none',
+	};
+
+	var chart = new google.visualization.PieChart(document.getElementById('myDailyStats'));
+	var chartTotal = new google.visualization.PieChart(document.getElementById('myTotalStats'));
+
+	chart.draw(data, options);
+	chartTotal.draw(dataTotal, options);
+}
 
 function showMyGoals(){
 	$("#goalView").show();
 	$("#highscoreView").hide();
 	$("#statsView").hide()
 	$(".headerTitle").html("Mina mål");
+	$(".headerTitle").animate({left: "-10vw"}, 50, "linear");
 	$(".highscore").css({backgroundColor: ''});
 	$(".myGoals").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
@@ -18,7 +73,6 @@ function showMyGoals(){
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
-
 }
 
 function showHighscore(){
@@ -28,9 +82,10 @@ function showHighscore(){
 	$("#goalView").hide();
 	$("#statsView").hide();
 	$(".headerTitle").html("Daglig topplista");
+	$(".headerTitle").animate({left: "-4vw"}, 50, "linear");
 	$(".highscore").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
-	$(".myGoals").css({backgroundColor: ''});
+	$(".myGoals").css({backgroundColor: 'rgb(33, 33, 33)'});
 	$(".highscore").css({borderTop: 'solid 3px #64bb50'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
@@ -39,12 +94,14 @@ function showHighscore(){
 }
 
 function showMyStats(){
+	getMyStats();
 	$("#statsView").show();
 	$("#goalView").hide();
 	$("#highscoreView").hide();
 	$(".headerTitle").html("Statistik");
+	$(".headerTitle").animate({left: "-10vw"}, 50, "linear");
 	$(".highscore").css({backgroundColor: ''});
-	$(".goals").css({backgroundColor: ''});
+	$(".myGoals").css({backgroundColor: ''});
 	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
@@ -95,7 +152,6 @@ function changeAccomplished(tag){
 		tag.style.color = "#ffffe8";
 		$(tag).parent().prev().removeClass("checkBg");
 		$(tag).parent().prev().children().show();
-		// tag.parentNode.parentNode.firstChild.children[0].style.color = "white";
 	    $.ajax({
 	        type: "POST",
 	        url: 'php/unAccomplishGoal.php',
@@ -103,6 +159,7 @@ function changeAccomplished(tag){
 	        success: function(){
 	        	generateTotalHighscore();
 				generateDailyHighscore();
+				getMyStats();
 	        }
     });
 
@@ -119,6 +176,7 @@ function changeAccomplished(tag){
         	success: function(){
         		generateTotalHighscore();
 				generateDailyHighscore();
+				getMyStats();
         	}
     	});
 	}
