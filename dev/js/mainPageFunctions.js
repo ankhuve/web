@@ -1,12 +1,20 @@
-
 window.onload = function() {
 	generateMyGoals();
 	generateTotalHighscore();
 	generateDailyHighscore();
 	showMyGoals();
 	getMyStats();
-	
 };
+
+function HSclick(){
+	$.ajax({
+		type: "POST",
+		url: "php/highscoreClick.php",
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
 
 function getMyStats(){
 	google.load("visualization", "1", {packages:["corechart"]});
@@ -91,6 +99,7 @@ function showHighscore(){
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".toggleDaily").attr("id", "total");
 	$(".toggleDaily").removeClass("bg1");
+	HSclick();
 }
 
 function showMyStats(){
