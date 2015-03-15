@@ -63,31 +63,19 @@
 					<!-- Tasks go here -->
 				</div>
 			</div>
+
 			<div id="highscoreView">
-				<div class="row">
-					<center><h2 class="headline"> Highscore Total </h2></center>
-				</div>
 				<div id="highscoreTotal" onload="generateTotalHighscore()">
-
+					<!-- Highscores go here -->
 				</div>
-				<div class="row">
-					<div class="col-xs-8 col-xs-offset-2">
-						<center><button class="btn" onclick="generateTotalHighscore()">Refresh total highscore</button></center>
-					</div>
-				</div>
-
-				<div class="row">
-					<center><h2 class="headline"> Highscore idag </h2></center>
-				</div>
+				
+				
 				<div id="highscoreDaily" onload="generateDailyHighscore()">
-
+					<!-- Highscores go here -->
 				</div>
-				<div class="row">
-					<div class="col-xs-8 col-xs-offset-2">
-						<center><button class="btn" onclick="generateDailyHighscore()">Refresh daily highscore</button></center>
-					</div>
-				</div>
+				<div class="toggleDaily"><div class="toggle"></div></div>
 			</div>
+
 			<div id="statsView">
 				<center><h2 class="headline">Stats go here</h2></center>
 			</div>
