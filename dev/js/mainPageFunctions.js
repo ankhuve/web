@@ -65,12 +65,19 @@ function generateDailyHighscore(){
 }
 
 function changeAccomplished(tag){
-	var taskID = tag.childNodes[0].value;
-	var checked = tag.childNodes[0].checked;
+
 	
-	if(checked){// UNACCOMPLISH ME
-		tag.childNodes[0].checked = false;
-		tag.style.color = "#ffffe8";
+	if(tag.getAttribute("class").split(" ")[1] === "accomplished"){
+		var accomplished = true;
+	} else {
+		var accomplished = false;
+	}
+	var taskID = tag.id;
+	
+	if(accomplished){// UNACCOMPLISH ME
+		tag.className = tag.getAttribute("class").split(" ")[0]+" unaccomplished";
+		tag.style.color = "white";
+		// tag.parentNode.parentNode.firstChild.children[0].style.color = "white";
 	    $.ajax({
 	        type: "POST",
 	        url: 'php/unAccomplishGoal.php',
@@ -82,8 +89,10 @@ function changeAccomplished(tag){
     });
 
 	} else { // ACCOMPLISH ME
-		tag.childNodes[0].checked = true;
+		tag.className = tag.getAttribute("class").split(" ")[0]+" accomplished";
 		tag.style.color = "green";
+		// tag.parentNode.parentNode.firstChild.children[0].style.color = "green";
+
 	    $.ajax({
         	type: "POST",
         	url: 'php/accomplishGoal.php',
@@ -94,10 +103,8 @@ function changeAccomplished(tag){
         	}
     	});
 	}
-	// generateTotalHighscore();
-	// generateDailyHighscore();
 }
 
-function checkboxTrigger(checkbox){
-	changeAccomplished(checkbox.parentNode);
-}
+// function checkboxTrigger(checkbox){
+// 	changeAccomplished(checkbox.parentNode);
+// }
