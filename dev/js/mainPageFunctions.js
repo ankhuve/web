@@ -10,30 +10,46 @@ function showMyGoals(){
 	$("#goalView").show();
 	$("#highscoreView").hide();
 	$("#statsView").hide()
+	$(".headerTitle").html("Mina mål");
 	$(".highscore").css({backgroundColor: ''});
-	$(".goals").css({backgroundColor: 'rgb(65, 65, 65)'});
+	$(".myGoals").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
+	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
+	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
 
 }
 
 function showHighscore(){
 	$("#highscoreView").show();
+	$("#highscoreTotal").hide();
+	$("#highscoreDaily").show();
 	$("#goalView").hide();
 	$("#statsView").hide();
+	$(".headerTitle").html("Daglig topplista");
 	$(".highscore").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
-	$(".goals").css({backgroundColor: ''});
-
+	$(".myGoals").css({backgroundColor: ''});
+	$(".highscore").css({borderTop: 'solid 3px #64bb50'});
+	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+	$(".toggleDaily").attr("id", "total");
+	$(".toggleDaily").removeClass("bg1");
 }
 
 function showMyStats(){
 	$("#statsView").show();
 	$("#goalView").hide();
 	$("#highscoreView").hide();
+	$(".headerTitle").html("Statistik");
 	$(".highscore").css({backgroundColor: ''});
 	$(".goals").css({backgroundColor: ''});
 	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
+	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+	$(".stats").css({borderTop: 'solid 3px #64bb50'});
+
 }
 
 
@@ -76,7 +92,9 @@ function changeAccomplished(tag){
 	
 	if(accomplished){// UNACCOMPLISH ME
 		tag.className = tag.getAttribute("class").split(" ")[0]+" unaccomplished";
-		tag.style.color = "white";
+		tag.style.color = "#ffffe8";
+		$(tag).parent().prev().removeClass("checkBg");
+		$(tag).parent().prev().children().show();
 		// tag.parentNode.parentNode.firstChild.children[0].style.color = "white";
 	    $.ajax({
 	        type: "POST",
@@ -90,8 +108,9 @@ function changeAccomplished(tag){
 
 	} else { // ACCOMPLISH ME
 		tag.className = tag.getAttribute("class").split(" ")[0]+" accomplished";
-		tag.style.color = "green";
-		// tag.parentNode.parentNode.firstChild.children[0].style.color = "green";
+		tag.style.color = "rgba(255, 255, 255, 0.5)";
+		$(tag).parent().prev().addClass("checkBg");
+		$(tag).parent().prev().children().hide();
 
 	    $.ajax({
         	type: "POST",
@@ -105,6 +124,19 @@ function changeAccomplished(tag){
 	}
 }
 
-// function checkboxTrigger(checkbox){
-// 	changeAccomplished(checkbox.parentNode);
-// }
+function toggleHighscore(){
+	if($(".toggleDaily").attr("id")==="daily"){
+		$("#highscoreTotal").hide(200);
+		$("#highscoreDaily").show(200);
+		$(".headerTitle").html("Daglig topplista");
+		$(".toggleDaily").attr("id", "total");
+		$(".toggleDaily").removeClass("bg1");
+			}else{
+		$("#highscoreTotal").show(200);
+		$("#highscoreDaily").hide(200);
+		$(".headerTitle").html("Total topplista");
+		$(".toggleDaily").attr("id", "daily");
+		$(".toggleDaily").addClass("bg1");
+	}
+
+};

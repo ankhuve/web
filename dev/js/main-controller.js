@@ -47,7 +47,13 @@ function toLogin(){
 }
 
 function logOut(){
-    location.href="php/logout.php";
+    if(confirm("Vill du logga ut?")){
+        location.href="php/logout.php";
+    }
+    else
+    {
+        //Cancel button pressed...
+    }
 }
 
 // ***** AJAX TO SHOW LOGIN/REGISTER *****

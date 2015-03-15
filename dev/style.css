@@ -560,7 +560,7 @@ input.marginRight{
 }
 
 .headerTitle{
-	font-size: 7vh;
+	font-size: 5vh;
 	font-family: "Open Sans";
 	font-weight: 300;
 	color: #55a244;
@@ -569,7 +569,7 @@ input.marginRight{
 	display: table-cell;
 	vertical-align: middle;
 	position: relative;
-	left: -8vw;
+	left: -4vw;
 }
 
 .container.offsetHeader{
@@ -593,6 +593,9 @@ input.marginRight{
 	height: 12vh;
 	width: 12vh;
 	margin: 1.5vh;
+	background-position: center;
+	background-size: 10vh 10vh;
+	background-repeat: no-repeat;
 }
 
 .points{
@@ -669,7 +672,7 @@ input.marginRight{
 }
 
 .toggleDaily{
-	background: url("img/daily.png");
+	background: url("img/total.png");
 	background-size: 4vh auto;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -687,4 +690,25 @@ input.marginRight{
 	line-height: 8vh;
 	text-align: center;
 	color: #ffffe8;
+}
+
+.bg1{
+	background: url("img/daily.png");
+	background-size: 4vh auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #55a244;
+	border-radius: 8vh;
+	height: 8vh;
+	width: 8vh;
+	position: fixed;
+	bottom: 18vh;
+	right: 3vh;
+}
+
+.checkBg{
+	background-image: url('img/check_light_green.png');
+	background-position: center;
+	background-size: 8vh 8vh;
+	background-repeat: no-repeat;
 }
