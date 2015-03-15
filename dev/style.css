@@ -593,7 +593,6 @@ input.marginRight{
 	height: 12vh;
 	width: 12vh;
 	margin: 1.5vh;
-
 }
 
 .points{
@@ -611,6 +610,7 @@ input.marginRight{
 	display: table-cell;
 	line-height: 1.4;
 	width: 70vw;
+	color: #ffffe8;
 }
 
 .footer{
@@ -650,4 +650,41 @@ input.marginRight{
 	background-size: 5vh auto;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.positionCircle{
+	background-color: rgb(50, 50, 50);
+	border-radius: 5.5vh;
+	height: 5.5vh;
+	width: 5.5vh;
+	margin-right: 2.5vh;
+	margin-left: 1vh;
+}
+
+.position{
+	color: #ffffe8;
+	text-align: center;
+	line-height: 5.5vh;
+	font-size: 2.5vh;
+}
+
+.toggleDaily{
+	background: url("img/daily.png");
+	background-size: 4vh auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #55a244;
+	border-radius: 8vh;
+	height: 8vh;
+	width: 8vh;
+	position: fixed;
+	bottom: 18vh;
+	right: 3vh;
+	box-shadow: 0 3px 5px rgba(0,0,0, 0.5);
+}
+
+.toggle{
+	line-height: 8vh;
+	text-align: center;
+	color: #ffffe8;
 }
