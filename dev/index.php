@@ -41,23 +41,12 @@
 	</head>
 <body>
 	<nav class="indexHeader">
-  		<!-- <div class="container-fluid"> -->
 		<img class="menuButton" src="img/logout.png" onclick="logOut()">
 		<div class="headerTitle">
 			Mina mål
 		</div>
-		<!-- <?php
-			if(isset($_COOKIE['username'])){
-				echo "<p class='navbar-text'>Inloggad som ".$_COOKIE['username']."</p>";
-				echo '<button onclick="logOut()" type="button" class="btn btn-default navbar-btn">Logga ut</button>';
-			} else {
-				echo "<p class='navbar-text'> You are not logged in </p>";
-				echo '<button onclick="toLogin()" type="button" class="btn btn-default navbar-btn">Logga in</button>';
-			}
-		?> -->
-  			
-  		<!-- </div> -->
   	</nav>
+  	
 	<div class="container fullWidth offsetHeader">
 		<div class="mainBody">
 			<div id="goalView">
@@ -81,13 +70,13 @@
 			<div id="statsView">
 				<div id="myStats">
 					<div class="dailyStats">
-						<div class="description">Daglig statistik</div>
+						<div class="description statsTitle">Daglig statistik</div>
 						<div class="pieChart" id="myDailyStats">
 							<!-- Pie chart goes here -->
 						</div>
 					</div>
 					<div class="totalStats">
-						<div class="description">Total statistik</div>
+						<div class="description statsTitle">Total statistik</div>
 						<div class="pieChart" id="myTotalStats">
 							<!-- Pie chart goes here -->
 						</div>

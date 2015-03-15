@@ -1,4 +1,3 @@
-
 window.onload = function() {
 	generateMyGoals();
 	generateTotalHighscore();
@@ -14,7 +13,6 @@ function getMyStats(){
     	type: "GET",
         url: 'php/generateMyStats.php',
         success: function(data){
-        	console.log(data);
         	generateMyStats(data);	
         }
     });
@@ -25,8 +23,6 @@ function generateMyStats(data){
 	var available = data.split(",")[1];
 	var accomplishedEver = data.split(",")[2];
 	var possibleEver = data.split(",")[3];
-	// console.log(accomplished+"/"+available+" Totalt: "+accomplishedEver+" av möjliga: "+possibleEver);
-	// $("#myStats").html("<p style='color: white'>"+accomplished+"/"+available+"</p>");
 	drawStats(accomplished, available, accomplishedEver, possibleEver);
 }
 
@@ -56,8 +52,8 @@ function drawStats(completed, total, completedEver, totalEver){
 	var chart = new google.visualization.PieChart(document.getElementById('myDailyStats'));
 	var chartTotal = new google.visualization.PieChart(document.getElementById('myTotalStats'));
 
-	chart.draw(data, options);
-	chartTotal.draw(dataTotal, options);
+	chart.draw(data, options); // Rita upp dagliga stats
+	chartTotal.draw(dataTotal, options); // Rita upp totala stats
 }
 
 function showMyGoals(){
