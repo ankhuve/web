@@ -69,10 +69,14 @@
 
 	foreach ($results as $key => $value) {
 		echo '<div class="goal" style="background-color: '.$colorsAndPoints[$value["points"]].';">';
-		echo '<div class="pointCircle"><div class="points">'.$value["points"].'p</div></div>';
+		if($value["accomplished"]){
+			echo '<div class="pointCircle checkBg"><div class="points" style="display: none;">'.$value["points"].'p</div></div>';
+		}else{
+			echo '<div class="pointCircle"><div class="points">'.$value["points"].'p</div></div>';
+		}
 		echo '<div class="tableFix">';
 		if($value["accomplished"]){
-			echo '<div class="description accomplished" id="'.$value["taskID"].'" onclick="changeAccomplished(this)" style="color:green;">';
+			echo '<div class="description accomplished" id="'.$value["taskID"].'" onclick="changeAccomplished(this)" style="color: rgba(255, 255, 255, 0.5);">';
 		} else {
 			echo '<div class="description unaccomplished" id="'.$value["taskID"].'" onclick="changeAccomplished(this)" style="color:#ffffe8;">';
 		}

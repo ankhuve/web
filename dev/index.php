@@ -40,7 +40,7 @@
 <body>
 	<nav class="indexHeader">
   		<!-- <div class="container-fluid"> -->
-		<img class="menuButton" src="img/menu.png">
+		<img class="menuButton" src="img/logout.png" onclick="logOut()">
 		<div class="headerTitle">
 			Mina mål
 		</div>
@@ -73,12 +73,13 @@
 				<div id="highscoreDaily" onload="generateDailyHighscore()">
 					<!-- Highscores go here -->
 				</div>
-				<div class="toggleDaily"><div class="toggle"></div></div>
+				<div class="toggleDaily" onclick="toggleHighscore()" id="total"><div class="toggle"></div></div>
 			</div>
 
 			<div id="statsView">
-				<center><h2 class="headline">Stats go here</h2></center>
+				<!-- Stats go here -->
 			</div>
+
 			<div class="footer">
 				<div class="tab myGoals" onclick="showMyGoals()">
 				</div>
