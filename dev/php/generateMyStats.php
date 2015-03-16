@@ -44,8 +44,10 @@ WHERE userid=".$_COOKIE['userID'].") AS a;";
 
 	$usageDays = queryDb($conn, $daysOfUsage);
 	$usageDays = $usageDays->fetch_object()->days;
-	if($usageDays<1){
+	if($usageDays==0){
 		$usageDays = 1;
+	}else{
+		$usageDays++;
 	}
 
 	$ptsPossibleEver = $usageDays * $ptsAvailable;

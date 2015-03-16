@@ -47,7 +47,7 @@ function toLogin(){
 }
 
 function logOut(){
-    if(confirm("Vill du logga ut?")){
+    if(confirm("Du är inloggad som "+getCookie("username")+". Vill du logga ut?")){
         location.href="php/logout.php";
     }
     else
