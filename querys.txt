@@ -1,4 +1,4 @@
-Önskvärt men verkar inte funka för att skapa table accomplished
+﻿Önskvärt men verkar inte funka för att skapa table accomplished
 
 CREATE TABLE accomplished
 (
@@ -44,4 +44,15 @@ INSERT INTO accomplished VALUES(userid, taskid, date);
 SELECT username, sum(points) totalPoints  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id GROUP BY username ORDER BY totalPoints DESC;
 
 ***** POÄNG IDAG ******
-SELECT username, sum(points) pointsToday, user.id userID  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id WHERE accomplished.date = '2015-02-22' GROUP BY username ORDER BY pointsToday DESC;
+SELECT username, sum(points) pointsToday, user.id userID 
+FROM accomplished 
+JOIN user ON accomplished.userID = user.id 
+JOIN task ON accomplished.taskID = task.id 
+WHERE accomplished.date = '2015-02-22' 
+GROUP BY username 
+ORDER BY pointsToday DESC;
+
+***** Summera statistik klicks *****
+SELECT count(clicked), userID, DATE(clicked)
+FROM clickReg
+GROUP BY userID, DATE(clicked);
