@@ -6,15 +6,17 @@ window.onload = function() {
 	getMyStats();
 };
 
-function HSclick(){
+// window.onbeforeunload = function(){
+// }
+
+function clickLog(type){
+	// console.log("Clicked "+type);
 	$.ajax({
 		type: "POST",
-		url: "php/highscoreClick.php",
-		success: function(data){
-			console.log(data);
-		}
+		data: { type : type },
+		url: "php/clickLog.php"
 	});
-}
+} 
 
 function getMyStats(){
 	google.load("visualization", "1", {packages:["corechart"]});
@@ -78,6 +80,7 @@ function showMyGoals(){
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
+	clickLog("1");
 }
 
 function showHighscore(){
@@ -96,7 +99,7 @@ function showHighscore(){
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".toggleDaily").attr("id", "total");
 	$(".toggleDaily").removeClass("bg1");
-	HSclick();
+	clickLog("2");
 }
 
 function showMyStats(){
@@ -112,6 +115,7 @@ function showMyStats(){
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
+	clickLog("3");
 
 }
 
