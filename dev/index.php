@@ -97,7 +97,7 @@
 			</div>
 
 			<div class="footer">
-				<div class="tab myGoals" onclick="showMyGoals()">
+				<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
 				</div>
 				<div class="tab highScore" onclick="showHighscore()">
 				</div>

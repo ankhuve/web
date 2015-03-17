@@ -84,7 +84,7 @@ function showMyGoals(){
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
-	clickLog("1");
+	// clickLog("1");
 }
 
 function showHighscore(){
