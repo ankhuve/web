@@ -36,7 +36,7 @@
 		// Header("Location: ../goals.php");
 
 		$message = "Inga valda mål, du kommer att omdirigeras till den första intällningssidan där du kan välja mål.";
-		echo "<script type='text/javascript'>alert('$message');</script>";
+		echo utf8_decode("<script type='text/javascript'>alert('$message');</script>");
 		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../goals.php">';
 		
 	}

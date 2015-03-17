@@ -19,6 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
   	<script src="js/checkIfLoggedIn.js"></script>
+  	<script src="js/main-controller.js"></script>
   	<script type="application/javascript" src="js/fastclick.js"></script>
 	<script type="text/javascript">
 		window.addEventListener('load', function() {
@@ -80,6 +81,9 @@
 					echo '<div class="totalPoints"><p>Med dessa mål kan du totalt tjäna <strong>'.$totalPoints.'</strong> poäng om dagen.</p></div>';
 				?>
 		</div>
+			<div class="bottomLink toOwnGoals">
+				<input class="removeInputStyling" value="Tillbaka" onclick="toGoals()">
+			</div>
 			<div class="bottomLink toIndex">
 				<input type="submit" class="removeInputStyling" value="Nästa" onclick="unsetCookie(clicked)">
 			</div>

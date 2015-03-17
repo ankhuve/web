@@ -149,7 +149,6 @@ body{
 	font-weight: 300;
 	font-size: 1.4em;
 	color: #ffffe8;
-	/*display: inline;*/
 	text-align: center;
 	border-radius: 50px;
 	vertical-align: middle;
@@ -523,9 +522,9 @@ h3{
 	bottom: 30px;
 	padding-top: 0;
 	padding-bottom: 0; 
-	width: 50vw;
+	width: 40vw;
 	height: 45px;
-	left: 25vw;
+	right: 5vw;
 }
 
 .toIndex input{
@@ -533,6 +532,20 @@ h3{
 	vertical-align: middle;
 }
 
+.toOwnGoals{
+	position: absolute;
+	bottom: 30px;
+	padding-top: 0;
+	padding-bottom: 0; 
+	width: 40vw;
+	height: 45px;
+	left: 5vw;
+}
+
+.toOwnGoals input{
+	padding-top: 7px;
+	vertical-align: middle;
+}
 @media screen and (max-height: 540px){
 	.toIndex{
 		font-size: bottom: 5px;
