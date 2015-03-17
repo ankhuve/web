@@ -152,7 +152,7 @@ function generateDailyHighscore(){
 }
 
 function changeAccomplished(tag){
-
+	var tag = tag.children[1].firstChild;
 	
 	if(tag.getAttribute("class").split(" ")[1] === "accomplished"){
 		var accomplished = true;
@@ -160,6 +160,7 @@ function changeAccomplished(tag){
 		var accomplished = false;
 	}
 	var taskID = tag.id;
+
 	
 	if(accomplished){// UNACCOMPLISH ME
 		tag.className = tag.getAttribute("class").split(" ")[0]+" unaccomplished";
@@ -210,5 +211,4 @@ function toggleHighscore(){
 		$(".toggleDaily").attr("id", "daily");
 		$(".toggleDaily").addClass("bg1");
 	}
-
 };

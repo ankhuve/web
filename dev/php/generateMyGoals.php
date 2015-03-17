@@ -67,7 +67,7 @@
 	usort($results, "compare");
 
 	foreach ($results as $key => $value) {
-		echo '<div class="goal" style="background-color: '.$colorsAndPoints[$value["points"]].';">';
+		echo '<div class="goal" style="background-color: '.$colorsAndPoints[$value["points"]].';" onclick="changeAccomplished(this)">';
 		if($value["accomplished"]){
 			echo '<div class="pointCircle checkBg"><div class="points" style="display: none;">'.$value["points"].'p</div></div>';
 		}else{
@@ -75,9 +75,9 @@
 		}
 		echo '<div class="tableFix">';
 		if($value["accomplished"]){
-			echo '<div class="description accomplished" id="'.$value["taskID"].'" onclick="changeAccomplished(this)" style="color: rgba(255, 255, 255, 0.5);">';
+			echo '<div class="description accomplished" id="'.$value["taskID"].'" style="color: rgba(255, 255, 255, 0.5);">';
 		} else {
-			echo '<div class="description unaccomplished" id="'.$value["taskID"].'" onclick="changeAccomplished(this)" style="color:#ffffe8;">';
+			echo '<div class="description unaccomplished" id="'.$value["taskID"].'" style="color:#ffffe8;">';
 		}
 		echo $value["description"];
 		echo '</div>';
