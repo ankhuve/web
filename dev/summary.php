@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+  	<script src="js/checkIfLoggedIn.js"></script>
 </head>
 <body>
 	<div class="container fullWidth summaryBg">

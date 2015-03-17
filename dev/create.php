@@ -15,6 +15,8 @@
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/getsize.js"></script>
 		<script src="js/createGoal.js"></script>
+		<script src="js/checkIfLoggedIn.js"></script>
+		<script src="js/main-controller.js"></script>
 	</head>
 <body onload="updateChosen()">
 	<div class="container fullWidth goalBg">
@@ -46,9 +48,7 @@
 				<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
 				<div class="navArrows bottomFix">
 					<div class="prev">
-						<a href="goals.php">
-							<img class="arrow" src="img/prev_arrow_white.png">
-						</a>
+						<img class="arrow" src="img/prev_arrow_white.png" onclick="toSummary()">
 					</div>
 					<div class="next">
 						<input type="submit" value="Klar!" class="doneLink">

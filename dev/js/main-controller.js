@@ -46,6 +46,23 @@ function toLogin(){
     location.href="login.php";
 }
 
+function toSummary(){
+    location.href="summary.php";
+}
+
+function toGoals(){
+    location.href="goals.php";
+}
+
+function toCreate(){
+    location.href="create.php";
+}
+
+function toWelcome(){
+    location.href="welcome.php";
+}
+
+
 function logOut(){
     if(confirm("Du är inloggad som "+getCookie("username")+". Vill du logga ut?")){
         location.href="php/logout.php";

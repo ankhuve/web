@@ -22,8 +22,7 @@
 			    FastClick.attach(document.body);
 			}, false);
 		</script>
-
-
+		<script src="js/checkIfLoggedIn.js"></script>
 	</head>
 <body onload="unsetCookie('clicked')">
 	<div class="container fullWidth goalBg">
@@ -44,14 +43,10 @@
 			<h2 class="goalInstructions increasedPadding">Välj några mål eller gå vidare och skapa egna</h2>
 			<div class="navArrows bottomFix">
 			<div class="prev">
-				<a href="welcome.html">
-					<img class="arrow" src="img/prev_arrow_white.png">
-				</a>
+				<img class="arrow" src="img/prev_arrow_white.png" onclick="toWelcome()">
 			</div>
 			<div class="next">
-				<a href="create.php">
-					<img class="arrow toCustomGoals" src="img/arrow_white.png">
-				</a>
+				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="toCreate()">
 			</div>
 		</div>
 		</div>
