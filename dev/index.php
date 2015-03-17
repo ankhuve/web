@@ -10,7 +10,7 @@
 		$resultObj = $result->fetch_object();
 		$numberOfTasks = $resultObj->numberOfTasks;
 		if($numberOfTasks == 0){
-			Header("Location: welcome.html");
+			Header("Location: welcome.php");
 		}
 	}
 	

@@ -26,7 +26,7 @@
 
 			if($numTasks<1){
 				// The user has no assigned tasks
-				Header("Location: ../welcome.html");
+				Header("Location: ../welcome.php");
 			} else {
 				// The user has assigned tasks
 				Header("Location: ../index.php");
@@ -53,7 +53,7 @@
 		setcookie("username", $username, time() + (86400 *  10), "/");
     	// $_SESSION['loggedIn'] = $id;
     	// $_SESSION['username'] = $username;
-    	header("Location: ../welcome.html");
+    	header("Location: ../welcome.php");
 	} else {
 		echo "WHAT THE FUCK ARE YOU DOING HERE?!";
 	}

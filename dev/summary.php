@@ -19,6 +19,12 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
   	<script src="js/checkIfLoggedIn.js"></script>
+  	<script type="application/javascript" src="js/fastclick.js"></script>
+	<script type="text/javascript">
+		window.addEventListener('load', function() {
+		    FastClick.attach(document.body);
+		}, false);
+	</script>
 </head>
 <body>
 	<div class="container fullWidth summaryBg">

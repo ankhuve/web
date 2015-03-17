@@ -17,6 +17,12 @@
 		<script src="js/createGoal.js"></script>
 		<script src="js/checkIfLoggedIn.js"></script>
 		<script src="js/main-controller.js"></script>
+		<script type="application/javascript" src="js/fastclick.js"></script>
+		<script type="text/javascript">
+			window.addEventListener('load', function() {
+			    FastClick.attach(document.body);
+			}, false);
+		</script>
 	</head>
 <body onload="updateChosen()">
 	<div class="container fullWidth goalBg">
