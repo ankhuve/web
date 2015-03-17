@@ -16,6 +16,7 @@
 		<script src="js/chooseGoal.js"></script>
 		<script src="js/getsize.js"></script>
 		<script src="js/main-controller.js"></script>
+		<script src="js/checkIfLoggedIn.js"></script>
 	</head>
 <body onload="unsetCookie('clicked')">
 	<div class="container fullWidth goalBg">
@@ -41,9 +42,7 @@
 				</a>
 			</div>
 			<div class="next">
-				<a href="create.php">
-					<img class="arrow toCustomGoals" src="img/arrow_white.png">
-				</a>
+				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="toCreate()">
 			</div>
 		</div>
 		</div>
