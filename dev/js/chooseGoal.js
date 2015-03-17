@@ -38,24 +38,25 @@ $(window).load(function(){
 			if (!found){
 				if(clicked.length != 5){
 					clicked.push($(this).attr("id"));
-					// $(this).find(">:first-child").animate({opacity:'0.5'},200);
-					$(this).animate({opacity:'0.5', backgroundColor: 'green'},200);
-					$(this).css({'background-color': '#55a244'});
+					$(this).removeClass('fixGoalBgGray');
+					$(this).addClass('fixGoalBgGreen');
 					var parentHeight = $(this).find(">:first-child").height()+12;
 					$('<div class="confirmBox" id='+$(this).attr("id")+'>').appendTo(this);
 					$("#"+$(this).attr("id")).find(".confirmBox").css({top: -parentHeight});
 					$("#"+$(this).attr("id")+".confirmBox").show(200);
 					$( "div.confirmBox" ).click(function() {
-						$(this).remove();
+						$(this).hide(200, function(){
+							$(this).remove();
+						});
+						
 					})
 				} else {
 					alert("Du har redan valt 5/5 mål.");
 				}
 			}else{
 				var index = clicked.indexOf($(this).attr("id"));
-				// $(this).find(">:first-child").animate({opacity:'1'},200);
-				$(this).animate({opacity:'1'},200);
-				$(this).css({'background-color': 'rgba(55, 55, 55, 0.3'});
+				$(this).removeClass('fixGoalBgGreen');
+				$(this).addClass('fixGoalBgGray');
 				if(index>-1){
 					clicked.splice(index, 1);
 				}

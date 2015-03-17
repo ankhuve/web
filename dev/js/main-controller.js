@@ -94,3 +94,12 @@ function unsetCookie(cname) {
     document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
+var a=document.getElementsByTagName("a");
+for(var i=0;i<a.length;i++)
+{
+    a[i].onclick=function()
+    {
+        window.location=this.getAttribute("href");
+        return false
+    }
+}

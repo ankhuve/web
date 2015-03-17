@@ -350,6 +350,15 @@ h3{
 	text-align: center;
 }
 
+.fixGoalBgGray{
+	background-color: rgba(55, 55, 55, 0.3);
+}
+
+.fixGoalBgGreen{
+	background-color: rgba(85, 162, 68, 0.5);
+}
+
+
 .taskPoints{
 	position: absolute;
 	text-align: center;

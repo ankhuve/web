@@ -16,6 +16,14 @@
 		<script src="js/chooseGoal.js"></script>
 		<script src="js/getsize.js"></script>
 		<script src="js/main-controller.js"></script>
+		<script type="application/javascript" src="js/fastclick.js"></script>
+		<script type="text/javascript">
+			window.addEventListener('load', function() {
+			    FastClick.attach(document.body);
+			}, false);
+		</script>
+
+
 	</head>
 <body onload="unsetCookie('clicked')">
 	<div class="container fullWidth goalBg">
