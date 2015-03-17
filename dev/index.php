@@ -39,7 +39,6 @@
 		<script src="js/getsize.js"></script>
 		<script src="js/main-controller.js"></script>
 		<script src="js/mainPageFunctions.js"></script>
-		<script src="js/checkIfLoggedIn.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script type="text/javascript">google.load('visualization', '1.0', {'packages':['corechart']});</script>
