@@ -50,11 +50,9 @@
 
 
 			<div class="bottomGreen">
-				
-				<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
 				<div class="navArrows bottomFix">
 					<div class="prev">
-						<img class="arrow" src="img/prev_arrow_white.png" onclick="toGoals()">
+						<img class="arrow" src="img/prev_arrow_white.png" onclick="window.location='goals.php'">
 					</div>
 					<div class="next">
 						<input type="submit" value="Klar!" class="doneLink">

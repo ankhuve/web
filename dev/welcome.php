@@ -26,16 +26,6 @@
 			window.addEventListener('load', function() {
 			    FastClick.attach(document.body);
 			}, false);
-
-			// var a=document.getElementsByTagName("a");
-			// 	for(var i=0;i<a.length;i++)
-			// 	{
-			// 	    a[i].onclick=function()
-			// 	    {
-			// 	        window.location=this.getAttribute("href");
-			// 	        return false
-			// 	    }
-			// 	}
 		</script>
 	</head>
 <body>
@@ -72,9 +62,7 @@
 							<img class="arrow" src="img/prev_arrow.png">
 						</div>
 						<div class="next">
-							<!-- <a href="goals.php"> -->
-								<p class="nextText" onclick="window.location='goals.php'">Gå vidare</p>
-							<!-- </a> -->
+							<p class="nextText" onclick="window.location='goals.php'">Gå vidare</p>
 						</div>
 					</div>
 				</div>

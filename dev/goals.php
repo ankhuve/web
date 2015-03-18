@@ -43,10 +43,10 @@
 			<h2 class="goalInstructions increasedPadding">Välj några mål eller gå vidare och skapa egna</h2>
 			<div class="navArrows bottomFix">
 			<div class="prev">
-				<img class="arrow" src="img/prev_arrow_white.png" onclick="toWelcome()">
+				<img class="arrow" src="img/prev_arrow_white.png" onclick="window.location='welcome.php'">
 			</div>
 			<div class="next">
-				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="toCreate()">
+				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="window.location='create.php'">
 			</div>
 		</div>
 		</div>

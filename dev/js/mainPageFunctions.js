@@ -3,6 +3,7 @@ window.onload = function() {
 		alert("Hörröduru, du är ju inte inloggad!");
 		toLogin();
 	}
+	getUsername();
 	generateMyGoals();
 	generateTotalHighscore();
 	generateDailyHighscore();
@@ -10,11 +11,30 @@ window.onload = function() {
 	getMyStats();
 };
 
-// window.onbeforeunload = function(){
-// }
+function getUsername(){
+	$(".username").html(getCookie("username"));
+}
+
+function slideMenu(){
+	$("#slideMenu").show();
+	$("#slideMenu").animate({
+		left: "0vw",
+	}, "fast", function(){
+		
+		$(".menubutton").attr("onclick", "slideBackMenu()")
+	})
+};
+
+function slideBackMenu(){
+	$("#slideMenu").animate({
+		left: "-70vw"
+	}, "fast", function(){
+		$("#slideMenu").hide();
+		$(".menubutton").attr("onclick", "slideMenu()")
+	})
+};
 
 function clickLog(type){
-	// console.log("Clicked "+type);
 	$.ajax({
 		type: "POST",
 		data: { type : type },

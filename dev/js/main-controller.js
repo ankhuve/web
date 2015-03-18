@@ -16,7 +16,7 @@ function checkIfEmpty(field) {
     }
 }
 function goBack() {
-    window.history.back()
+    window.history.back();
 }
 
 $("#customGoalForm").keypress(function(e) {
@@ -62,6 +62,16 @@ function toWelcome(){
     location.href="welcome.php";
 }
 
+function chooseNewGoals(){
+    if(confirm("Dina poäng för dagen kommer att nollställas om du vill välja nya mål. Vill du fortfarande göra det?")){
+        window.location="goals.php";
+    }
+    else
+    {
+        //Cancel button pressed...
+    }
+}
+
 
 function logOut(){
     if(confirm("Du är inloggad som "+getCookie("username")+". Vill du logga ut?")){
@@ -102,21 +112,11 @@ function getCookie(cname) {
     for(var i=0; i<ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length).replace(/\+/g,' ');
     }
     return "";
 }
 
 function unsetCookie(cname) {
     document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
-
-var a=document.getElementsByTagName("a");
-for(var i=0;i<a.length;i++)
-{
-    a[i].onclick=function()
-    {
-        window.location=this.getAttribute("href");
-        return false
-    }
 }
