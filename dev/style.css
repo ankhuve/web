@@ -768,7 +768,7 @@ input.marginRight{
 }
 
 #slideMenu{
-	background-color: #5DB849;
+	background-color: rgba(0,0,0,0.8);
 	min-width: 70vw;
 	width: 70vw;
 	height: 100vh;
@@ -826,11 +826,11 @@ li{
 	bottom: 10vh;
 	width: 62vw;
 	padding-top: 5vh;
-	background-color: #984646;
+	background-color: rgba(255,0,0,0.6);
 }
 
 #userinfo{
-	background-color: #5f5f5f;
+	background-color: rgba(0,0,0,0.5);
 	padding-top: 5.5vh;
 	padding-bottom: 5.5vh;
 	/*text-align: center;*/
