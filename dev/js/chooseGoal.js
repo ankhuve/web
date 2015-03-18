@@ -16,6 +16,19 @@ $(window).load(function(){
     xmlhttp.open("GET","php/getGoals.php",true);
     xmlhttp.send();
 
+    $.ajax({
+    	type: "GET",
+        url: 'php/getMyTasklist.php',
+        success: function(data){
+        	if(data != ""){
+	        	var returnedTasklist = data.split(",");
+	        	for(i in returnedTasklist){
+		        	$("div.goalButton#"+returnedTasklist[i]).click();
+        		}
+    		}
+
+        }
+    });
     //Create the goal boxes
     var createGoals = function(data){
     	var data = JSON.parse(data);
