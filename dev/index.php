@@ -105,9 +105,9 @@
 				<div class="footer">
 					<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
 					</div>
-					<div class="tab highScore" onclick="showHighscore()">
+					<div class="tab highScore" onclick="showHighscore();clickLog('2')">
 					</div>
-					<div class="tab stats" onclick="showMyStats()">
+					<div class="tab stats" onclick="showMyStats();clickLog('3')">
 					</div>
 				</div>
 			</div>

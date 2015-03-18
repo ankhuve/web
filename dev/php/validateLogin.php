@@ -15,7 +15,7 @@
 			}
 
 			setcookie("userID", $id, time() + (86400 * 10), "/");
-			setcookie("username", $username, time() + (86400 *  10), "/");
+			setcookie("username", utf8_decode($username), time() + (86400 *  10), "/");
 			// $_SESSION['loggedIn'] = $id;
 			// $_SESSION['username'] = $username;
 

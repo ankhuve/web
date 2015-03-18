@@ -9,10 +9,13 @@ window.onload = function() {
 	generateDailyHighscore();
 	showMyGoals();
 	getMyStats();
+	clickLog('4');
 };
 
 function getUsername(){
+
 	$(".username").html(getCookie("username"));
+	console.log(getCookie("username"));
 }
 
 function slideMenu(){
@@ -123,7 +126,7 @@ function showHighscore(){
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".toggleDaily").attr("id", "total");
 	$(".toggleDaily").removeClass("bg1");
-	clickLog("2");
+	// clickLog("2");
 }
 
 function showMyStats(){
@@ -139,7 +142,7 @@ function showMyStats(){
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
-	clickLog("3");
+	// clickLog("3");
 
 }
 
