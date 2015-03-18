@@ -572,9 +572,10 @@ input.marginRight{
 	width: 100vw;
 	position: fixed;
 	display: table;
+	z-index: 20;
 }
 
-.menuButton{
+.button{
 	display: table-cell;
 	height: 5vh;
 	width: 5vh;
@@ -640,7 +641,7 @@ input.marginRight{
 
 .footer{
 	background-color: rgb(33, 33, 33);
-	position: fixed;
+	position: absolute;
 	bottom: 0px;
 	height: 15vh;
 	width: 100vw;
@@ -766,3 +767,82 @@ input.marginRight{
 	display: table-cell;
 }
 
+#slideMenu{
+	background-color: #5DB849;
+	min-width: 70vw;
+	width: 70vw;
+	height: 100vh;
+	position: absolute;
+	top: 10vh;
+	left: -70vw;
+	display: table-cell;
+	/*border-right: solid 3px rgb(33, 33, 33);*/
+	z-index: 20;
+	font-style: "Open Sans";
+	font-size: 6vmin;
+	color: #ffffe8;
+	box-shadow: 2vmin 0px 4vmin rgba(0,0,0,0.3);
+}
+
+#slideMenu ul{
+	list-style-type: none;
+	padding-left: 8vw;
+	margin: 0;
+	padding: 0;
+}
+
+#outer{
+	width: 170vw;
+	position: absolute;
+	display: table;
+	/*left: -40vw;*/
+	overflow: hidden;
+}
+
+.container.fullWidth.offsetHeader{
+	position: relative;
+	display: table-cell;
+}
+
+li{
+	padding-bottom: 5vh;
+	padding-top: 3vh;
+	padding-left: 8vw;
+}
+
+#logoutButton{
+	height: 5vmin;
+	width: 5vmin;
+	margin: 2vmin;
+	display: inline;
+	margin-bottom: 0;
+	margin-left: 0;
+	/*position: relative;*/
+	/*bottom: 5vh;*/
+}
+
+.sideMenuBottomFix{
+	position: absolute;
+	bottom: 10vh;
+	width: 62vw;
+	padding-top: 5vh;
+	background-color: #984646;
+}
+
+#userinfo{
+	background-color: #5f5f5f;
+	padding-top: 5.5vh;
+	padding-bottom: 5.5vh;
+	/*text-align: center;*/
+	/*padding-left: 0;*/
+	max-height: 15vh;
+	/*box-shadow: 0 1vmin 2vmin rgba(0,0,0,0.6);*/
+}
+
+.userIcon{
+	height: 6vmin;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	margin-right: 5vmin;
+}

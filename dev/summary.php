@@ -82,7 +82,7 @@
 				?>
 		</div>
 			<div class="bottomLink toOwnGoals">
-				<input class="removeInputStyling" value="Tillbaka" onclick="toGoals()">
+				<input class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'">
 			</div>
 			<div class="bottomLink toIndex">
 				<input type="submit" class="removeInputStyling" value="Nästa" onclick="unsetCookie(clicked)">

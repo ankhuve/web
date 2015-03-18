@@ -29,8 +29,7 @@
 		<link rel="icon" type="image/png" href="img/fav.png">
 
 		<!-- Bootstrap CSS -->
-
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'> 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>  
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> 
@@ -51,61 +50,69 @@
 	</head>
 <body>
 	<nav class="indexHeader">
-		<img class="menuButton" src="img/logout.png" onclick="logOut()">
+		<img class="button menuButton" src="img/menu.png" onclick="slideMenu()">
 		<div class="headerTitle">
 			Mina mål
 		</div>
   	</nav>
-  	
-	<div class="container fullWidth offsetHeader">
-		<div class="mainBody">
-			<div id="goalView">
-				<div id="myTasks" onload="generateMyGoals()">
-					<!-- Tasks go here -->
-				</div>
-			</div>
-
-			<div id="highscoreView">
-				<div id="highscoreTotal" onload="generateTotalHighscore()">
-					<!-- Highscores go here -->
-				</div>
-				
-				
-				<div id="highscoreDaily" onload="generateDailyHighscore()">
-					<!-- Highscores go here -->
-				</div>
-				<div class="toggleDaily" onclick="toggleHighscore()" id="total"><div class="toggle"></div></div>
-			</div>
-
-			<div id="statsView">
-				<div id="myStats">
-					<div class="dailyStats">
-						<div class="description statsTitle">Daglig statistik</div>
-						<div class="pieChart" id="myDailyStats">
-							<!-- Pie chart goes here -->
-						</div>
+  	<div class="container fullwidth" id="outer">
+	  	<nav id="slideMenu" style="display: none;">
+	  		<ul>
+	  			<li id="userInfo"><img class="userIcon" src="img/user.png"><span class="username"></span></li>
+  				<li onclick="chooseNewGoals()">Välj nya mål</li>
+  				<li class="sideMenuBottomFix" onclick="logOut()"><img class="button" id="logoutButton" src="img/logout_white.png"> Logga ut</li>
+	  		</ul>
+	  	</nav>
+		<div class="container fullWidth offsetHeader" onclick="slideBackMenu()">
+			<div class="mainBody">
+				<div id="goalView">
+					<div id="myTasks" onload="generateMyGoals()">
+						<!-- Tasks go here -->
 					</div>
-					<div class="totalStats">
-						<div class="description statsTitle">Total statistik</div>
-						<div class="pieChart" id="myTotalStats">
-							<!-- Pie chart goes here -->
-						</div>
+				</div>
+
+				<div id="highscoreView">
+					<div id="highscoreTotal" onload="generateTotalHighscore()">
+						<!-- Highscores go here -->
 					</div>
 					
-					<!-- Stats go here -->
+					
+					<div id="highscoreDaily" onload="generateDailyHighscore()">
+						<!-- Highscores go here -->
+					</div>
+					<div class="toggleDaily" onclick="toggleHighscore()" id="total"><div class="toggle"></div></div>
+				</div>
+
+				<div id="statsView">
+					<div id="myStats">
+						<div class="dailyStats">
+							<div class="description statsTitle">Daglig statistik</div>
+							<div class="pieChart" id="myDailyStats">
+								<!-- Pie chart goes here -->
+							</div>
+						</div>
+						<div class="totalStats">
+							<div class="description statsTitle">Total statistik</div>
+							<div class="pieChart" id="myTotalStats">
+								<!-- Pie chart goes here -->
+							</div>
+						</div>
+						
+						<!-- Stats go here -->
+					</div>
+				</div>
+
+				<div class="footer">
+					<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
+					</div>
+					<div class="tab highScore" onclick="showHighscore()">
+					</div>
+					<div class="tab stats" onclick="showMyStats()">
+					</div>
 				</div>
 			</div>
 
-			<div class="footer">
-				<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
-				</div>
-				<div class="tab highScore" onclick="showHighscore()">
-				</div>
-				<div class="tab stats" onclick="showMyStats()">
-				</div>
-			</div>
 		</div>
-
 	</div>
 </body>
 </html>
