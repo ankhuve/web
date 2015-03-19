@@ -32,6 +32,10 @@ $("#refreshGoals").click(function(){
     refreshMyGoals();
 });
 
+$(".userinput").focus(function(){
+    $(this).attr("placeholder", "none");
+});
+
 function refreshMyGoals(){
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
