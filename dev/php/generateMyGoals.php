@@ -6,21 +6,34 @@
 
 	$notAccomplishedTasksQuery = "SELECT * FROM task 
 								WHERE id 
-								IN(SELECT taskID
-								FROM tasklist
-								WHERE taskID NOT IN (SELECT taskID
-								FROM accomplished
-								WHERE date = '".$today."' AND userID = ".$_COOKIE[
-								'userID'].") and userID = ".$_COOKIE['userID'].")
+								IN(
+									SELECT taskID
+									FROM tasklist
+									WHERE taskID NOT IN (
+										SELECT taskID
+										FROM accomplished
+										WHERE date = '".$today."' AND userID = ".$_COOKIE['userID'].") 
+									AND userID = ".$_COOKIE['userID']." 
+									AND tasklistDate = (
+										SELECT max(tasklistDate) 
+										FROM tasklist 
+										WHERE userID = ".$_COOKIE['userID']."))
 								ORDER BY task.points DESC;";
 
 	$accomplishedTasksQuery = "SELECT * FROM task 
 								WHERE id 
-								IN(SELECT taskID
-								FROM tasklist
-								WHERE taskID IN (SELECT taskID
-								FROM accomplished
-								WHERE date = '".$today."' AND userID = ".$_COOKIE['userID'].") and userID = ".$_COOKIE['userID'].")
+								IN(
+									SELECT taskID
+									FROM tasklist
+									WHERE taskID IN (
+										SELECT taskID
+										FROM accomplished
+										WHERE date = '".$today."' AND userID = ".$_COOKIE['userID'].") 
+								and userID = ".$_COOKIE['userID']."
+								AND tasklistDate = (
+									SELECT max(tasklistDate) 
+									FROM tasklist 
+									WHERE userID = ".$_COOKIE['userID']."))
 								ORDER BY task.points DESC;";
 	
 	$notAccomplishedObj = queryDb($conn, $notAccomplishedTasksQuery);
