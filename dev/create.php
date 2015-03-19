@@ -31,7 +31,7 @@
 			<div id="goalHeaders">
 				<h1 class="mdMargin center" id="chooseGoalsHeader">Skapa egna mål</h1>
 				<h2 class="thinHeader center">10 poäng per mål</h2>
-				<h3 class="center"> Du har total valt <span id="totalGoals"></span>/5 mål</h3>
+				<h3 class="center"> Du har total valt <span id="totalGoals"></span> mål</h3>
 			</div>
 		</div>
 
