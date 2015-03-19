@@ -20,8 +20,6 @@
 		<script src="js/getsize.js"></script>
 		<script src="js/shiftInstructions.js"></script>
 		<script type="application/javascript" src="js/fastclick.js"></script>
-		<script src="js/main-controller.js"></script>
-		<script src="js/mainPageFunctions.js"></script>
 		<script type="text/javascript">
 			window.addEventListener('load', function() {
 			    FastClick.attach(document.body);
