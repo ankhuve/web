@@ -31,7 +31,7 @@
 		</script>
 	</head>
 <body>
-	<div class="container fullWidth bgImg">
+	<div class="container fullWidth bgImg" id="loginScreen">
 		<center>
 			<div class="wrapper">
 				<center>
@@ -41,7 +41,7 @@
 					<form action="php/validateLogin.php" method="post">
 						<div class="col-xs-12 loginForm">
 							<input class="userinput" type="username" name="username" placeholder="Username" onchange="loginOrRegister(this.value)">
-							<input class="userinput" type="password" name="password" placeholder="*********">
+							<input class="userinput" id="pw" type="password" name="password" placeholder="*********">
 						</div>
 					
 						<div class="col-xs-12 bottomBar" id="loginOrRegister">
