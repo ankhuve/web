@@ -4,7 +4,7 @@
 	include_once("config.php");
 	include_once("functions.php");
 
-	$goalsQuery = 'SELECT * FROM task WHERE addedBy is null;';
+	$goalsQuery = 'SELECT * FROM task WHERE addedBy is null OR addedBy='.$_COOKIE["userID"].';';
 
 	$result = queryDb($conn, $goalsQuery);
 
