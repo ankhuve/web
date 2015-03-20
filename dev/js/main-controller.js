@@ -28,6 +28,14 @@ function checkIfEmpty(field) {
 //     $(this).attr("placeholder", "none");
 // });
 
+function toggleLogo(toggle){
+    if(toggle===1){
+        $('.logoHolder').hide(200);
+    }else{
+        $('.logoHolder').show(200);
+    }
+}
+
 function refreshMyGoals(){
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
