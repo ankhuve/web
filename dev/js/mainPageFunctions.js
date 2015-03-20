@@ -82,7 +82,15 @@ function generateMyStats(data){
 }
 
 function drawStats(completed, total, completedEver, totalEver){
-	
+	offsetDaily = 0;
+	if(parseInt(completed)>0){
+		offsetDaily = 0.1;
+	}
+
+	offsetTotal = 0;
+	if(parseInt(completedEver)>0){
+		offsetTotal = 0.1;
+	}
 	var data = google.visualization.arrayToDataTable([
 	  ['Avklarade', 'Poäng'],
 	  ['Avklarade poäng', parseInt(completed)],
@@ -95,11 +103,20 @@ function drawStats(completed, total, completedEver, totalEver){
 		['Missade poäng', parseInt(parseInt(totalEver)-parseInt(completedEver))]
 	]);
 
-	var options = {
+	var optionsDaily = {
 		legend: 'none',
 		slices: {
 			0: {color: 'rgb(100, 187, 80)'},
-			1: {offset: 0.1}},
+			1: {offset: offsetDaily}},
+		backgroundColor: 'rgb(33, 33, 33)',
+		pieSliceBorderColor: 'none',
+	};
+
+	var optionsTotal = {
+		legend: 'none',
+		slices: {
+			0: {color: 'rgb(100, 187, 80)'},
+			1: {offset: offsetTotal}},
 		backgroundColor: 'rgb(33, 33, 33)',
 		pieSliceBorderColor: 'none',
 	};
@@ -107,8 +124,8 @@ function drawStats(completed, total, completedEver, totalEver){
 	var chart = new google.visualization.PieChart(document.getElementById('myDailyStats'));
 	var chartTotal = new google.visualization.PieChart(document.getElementById('myTotalStats'));
 
-	chart.draw(data, options); // Rita upp dagliga stats
-	chartTotal.draw(dataTotal, options); // Rita upp totala stats
+	chart.draw(data, optionsDaily); // Rita upp dagliga stats
+	chartTotal.draw(dataTotal, optionsTotal); // Rita upp totala stats
 }
 
 function showMyGoals(){
