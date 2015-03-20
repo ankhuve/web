@@ -15,26 +15,18 @@ function checkIfEmpty(field) {
     	document.getElementById("userGoal").checked = true;
     }
 }
-function goBack() {
-    window.history.back();
-}
+// function goBack() {
+//     window.history.back();
+// }
 
-$("#customGoalForm").keypress(function(e) {
-    if(e.which == 10 || e.which == 13){
-        e.preventDefault();
-        addGoalFunction(function() {
-        refreshMyGoals();
-        });
-    }
-});
+// $("#refreshGoals").click(function(){
+    
+//     refreshMyGoals();
+// });
 
-$("#refreshGoals").click(function(){
-    refreshMyGoals();
-});
-
-$(".userinput").focus(function(){
-    $(this).attr("placeholder", "none");
-});
+// $(".userinput").focus(function(){
+//     $(this).attr("placeholder", "none");
+// });
 
 function refreshMyGoals(){
     xmlhttp = new XMLHttpRequest();
@@ -76,16 +68,6 @@ function chooseNewGoals(){
     }
 }
 
-
-function logOut(){
-    if(confirm("Du är inloggad som "+getCookie("username")+". Vill du logga ut?")){
-        location.href="php/logout.php";
-    }
-    else
-    {
-        //Cancel button pressed...
-    }
-}
 
 // ***** AJAX TO SHOW LOGIN/REGISTER *****
 function loginOrRegister(str) {

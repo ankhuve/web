@@ -48,23 +48,25 @@
 				<form action="php/createTasklist.php" method="post">
 					<?php
 						$totalPoints = 0;
-						if(isset($_COOKIE['clicked'])){
+						if(isset($_COOKIE['clicked']) OR (sizeof($_POST['taskDesc']) > 0)){
+							
+							if(isset($_COOKIE['clicked'])){
+								$chosenTasks = "(".$_COOKIE['clicked'].")";
+								$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
+								$result = queryDb($conn, $chosenTasksQuery);
 
-							$chosenTasks = "(".$_COOKIE['clicked'].")";
-							$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
-							$result = queryDb($conn, $chosenTasksQuery);
-
-							while($line = $result->fetch_object()){
-								$taskID = $line->id;
-								$description = utf8_encode($line->description);
-								$points = $line->points;
-								$totalPoints += $points;
-								echo '<div class="row">';
-								echo '<div class="col-xs-8 col-xs-offset-1">';
-								echo "<input type='checkbox' class='marginRight' name='taskID[]' value=$taskID checked='checked'><span class='taskDescription'>".$description."</span></input>";
-								echo '</div>';
-								echo '<div class="col-xs-2">'.$points.'</div>';
-								echo '</div>';
+								while($line = $result->fetch_object()){
+									$taskID = $line->id;
+									$description = utf8_encode($line->description);
+									$points = $line->points;
+									$totalPoints += $points;
+									echo '<div class="row">';
+									echo '<div class="col-xs-8 col-xs-offset-1">';
+									echo "<input type='checkbox' class='marginRight' name='taskID[]' value=$taskID checked='checked'><span class='taskDescription'>".$description."</span></input>";
+									echo '</div>';
+									echo '<div class="col-xs-2">'.$points.'</div>';
+									echo '</div>';
+								}
 							}
 						}
 
@@ -78,6 +80,7 @@
 							echo '</div>';
 							echo '<div class="col-xs-2">10</div>';
 							echo '</div>';
+							$totalPoints += 10;
 							}
 						}
 						echo '<hr class="customDivider"/>';
@@ -91,7 +94,7 @@
 					<!-- <input class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"> -->
 				</div>
 				<div class="bottomLink toIndex">
-					<input type="submit" class="removeInputStyling" value="Nästa" onclick="unsetCookie(clicked)">
+					<input type="submit" class="removeInputStyling" value="Klar!" onclick="unsetCookie(clicked)">
 				</div>
 			</div>
 		</form>

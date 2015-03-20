@@ -822,8 +822,7 @@ input.marginRight{
 	top: 10vh;
 	left: -70vw;
 	display: table-cell;
-	/*border-right: solid 3px rgb(33, 33, 33);*/
-	z-index: 20;
+	z-index: 1000;
 	font-style: "Open Sans";
 	font-size: 6vmin;
 	color: #ffffe8;
