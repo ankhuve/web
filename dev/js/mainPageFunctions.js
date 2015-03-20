@@ -10,12 +10,29 @@ window.onload = function() {
 	showMyGoals();
 	getMyStats();
 	clickLog('4');
+	var username = "";
 };
 
 function getUsername(){
+	$.ajax({
+		type: "GET",
+		url: "php/getMyUsername.php",
+		success: function(data){
+			$(".username").html(data);
+			username = data;
+		}
 
-	$(".username").html(getCookie("username"));
-	console.log(getCookie("username"));
+	});
+}
+
+function logOut(){
+    if(confirm("Du är inloggad som "+username+". Vill du logga ut?")){
+        location.href="php/logout.php";
+    }
+    else
+    {
+        //Cancel button pressed...
+    }
 }
 
 function slideMenu(){

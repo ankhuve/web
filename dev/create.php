@@ -17,6 +17,7 @@
 		<script src="js/createGoal.js"></script>
 		<script src="js/checkIfLoggedIn.js"></script>
 		<script src="js/main-controller.js"></script>
+		<script src="js/preventDefaultGoalform.js"></script>
 		<script type="application/javascript" src="js/fastclick.js"></script>
 		<script type="text/javascript">
 			window.addEventListener('load', function() {
@@ -55,7 +56,7 @@
 						<img class="arrow" src="img/prev_arrow_white.png" onclick="window.location='goals.php'">
 					</div>
 					<div class="next">
-						<input type="submit" value="Klar!" class="doneLink">
+						<input type="submit" value="Nästa" class="doneLink">
 					</div>
 				</div>
 				

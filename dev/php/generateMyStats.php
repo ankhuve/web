@@ -12,7 +12,7 @@ GROUP BY username;";
 	$totPtsAvailableQuery = "SELECT sum(points) available
 FROM tasklist JOIN task 
 ON tasklist.taskID = task.id 
-WHERE userID = '".$_COOKIE['userID']."';";
+WHERE userID = '".$_COOKIE['userID']."' AND tasklistDate = CURDATE();";
 
 	$totPtsEverQuery = "SELECT sum(points) accomplishedEver
 FROM accomplished JOIN user 
