@@ -105,6 +105,7 @@ function drawStats(completed, total, completedEver, totalEver){
 
 	var optionsDaily = {
 		legend: 'none',
+		tooltip: {trigger: 'selection'},
 		slices: {
 			0: {color: 'rgb(100, 187, 80)'},
 			1: {offset: offsetDaily}},
@@ -114,6 +115,7 @@ function drawStats(completed, total, completedEver, totalEver){
 
 	var optionsTotal = {
 		legend: 'none',
+		tooltip: {trigger: 'selection'},
 		slices: {
 			0: {color: 'rgb(100, 187, 80)'},
 			1: {offset: offsetTotal}},
