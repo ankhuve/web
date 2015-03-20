@@ -66,9 +66,7 @@
 		<div class="container fullWidth offsetHeader" onclick="slideBackMenu()">
 			<div class="mainBody">
 				<div id="goalView">
-					<div id="myTasks" onload="generateMyGoals()">
-						<!-- Tasks go here -->
-					</div>
+					<div id="myTasks" onload="generateMyGoals()"></div>
 				</div>
 
 				<div id="highscoreView">

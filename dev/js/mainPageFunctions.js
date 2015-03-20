@@ -10,8 +10,11 @@ window.onload = function() {
 	showMyGoals();
 	getMyStats();
 	clickLog('4');
-	var username = "";
+	// var username = "";
 };
+
+var updated = new Date();
+var username = "";
 
 function getUsername(){
 	$.ajax({
@@ -21,7 +24,6 @@ function getUsername(){
 			$(".username").html(data);
 			username = data;
 		}
-
 	});
 }
 
@@ -143,7 +145,8 @@ function showMyGoals(){
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
-	// clickLog("1");
+	generateTotalHighscore();
+	generateDailyHighscore();
 }
 
 function showHighscore(){
@@ -162,7 +165,6 @@ function showHighscore(){
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".toggleDaily").attr("id", "total");
 	$(".toggleDaily").removeClass("bg1");
-	// clickLog("2");
 }
 
 function showMyStats(){
@@ -178,15 +180,22 @@ function showMyStats(){
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
-	// clickLog("3");
-
+	generateTotalHighscore();
+	generateDailyHighscore();
 }
 
 
 function generateMyGoals(){
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
-        document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    	var currentTime = new Date();
+    	if(updated.getDate<currentTime.getDate){
+    		document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    	} else {
+    		if(document.getElementById("myTasks").innerHTML === ""){
+    			document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    		}
+    	}
     }
     xmlhttp.open("GET", "php/generateMyGoals.php", true);
     xmlhttp.send();

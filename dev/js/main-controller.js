@@ -67,14 +67,33 @@ function toWelcome(){
 }
 
 function chooseNewGoals(){
-    if(confirm("Dina poäng för dagen kommer att nollställas om du vill välja nya mål. Vill du fortfarande göra det?")){
-        window.location="goals.php";
-    }
-    else
-    {
-        //Cancel button pressed...
-    }
+    $.ajax({
+        type: "GET",
+        url: "php/getTime.php",
+        success: function(data){
+            if(data<12){
+                changeAlert("allowed");
+            } else {
+                changeAlert("declined");
+            }
+            // console.log(data);
+        }
+    })
+
 }
+
+function changeAlert(status){
+    if(status === "allowed"){
+        if(confirm("Dina poäng för dagen kommer att nollställas om du vill välja nya mål. Vill du fortfarande göra det?")){
+            window.location="goals.php";
+        } 
+    } else {
+        alert("Du kan endast ändra dina mål innan klockan 12.");
+    }
+
+}
+
+
 
 
 // ***** AJAX TO SHOW LOGIN/REGISTER *****
