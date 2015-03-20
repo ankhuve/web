@@ -54,9 +54,9 @@
 
 		$valueString = trim($valueString, ",");
 		
-		$checkIfTasksExist = "SELECT COUNT(*) numTasks FROM tasklist WHERE userID=".$_COOKIE['userID']." AND tasklistDate = '".$today."';";
+		$checkIfTasksExist = "SELECT COUNT(*) numTasks FROM tasklist WHERE userID=".$_COOKIE['userID']." AND tasklistDate >= '".$today."';";
 		if((queryDb($conn, $checkIfTasksExist)->fetch_object()->numTasks)>0){
-			$removePreviousGoals = "DELETE FROM tasklist WHERE userID=".$_COOKIE['userID']." AND tasklistDate >= '".$today."';";
+			$removePreviousGoals = "DELETE FROM tasklist WHERE userID=".$_COOKIE['userID']." AND tasklistDate >= CURDATE();";
 			queryDb($conn, $removePreviousGoals);
 			$deleteDailyPoints = "DELETE FROM accomplished WHERE userID=".$_COOKIE['userID']." AND date='".$today."';";
 			queryDb($conn, $deleteDailyPoints);
