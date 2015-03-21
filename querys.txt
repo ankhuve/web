@@ -68,3 +68,10 @@ accomplished.date = tasklist.tasklistDate AND
 accomplished.taskID = tasklist.taskID
 JOIN task ON task.id = tasklist.taskID
 WHERE accomplished.date = CURDATE()
+
+***** Totalt avklarad poäng innan idag *****
+SELECT SUM(points), date
+FROM accomplished  JOIN task 
+ON accomplished.taskID = task.id
+WHERE date <= CURDATE() 
+GROUP BY accomplished.date
