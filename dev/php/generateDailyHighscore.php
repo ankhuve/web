@@ -4,7 +4,7 @@
 	$fullDateToday = getdate();
 	$today = $fullDateToday['year']."-".$fullDateToday['mon']."-".$fullDateToday['mday'];
 	//$dailyHighscoreQuery = "SELECT username, sum(points) totalPoints, user.id userID  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id WHERE accomplished.date = '".$today."' GROUP BY username ORDER BY totalPoints DESC;";
-	$dailyHighscoreQuery = "SELECT IFNULL(accomplishedPts-(possiblePts-accomplishedPts), -possiblePts) totalPoints, user.username username
+	$dailyHighscoreQuery = "SELECT IFNULL(accomplishedPts-(possiblePts-accomplishedPts), -possiblePts) totalPoints, user.username username, user.id userID
 FROM (
     SELECT SUM(points) possiblePts, tasklist.userID userID
     FROM tasklist

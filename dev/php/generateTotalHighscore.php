@@ -1,7 +1,7 @@
 <?php
 	include_once("config.php");
 	include_once("functions.php");
-	$totalHighscoreQuery = "SELECT IFNULL(accomplishedPts-(possiblePts-accomplishedPts), -possiblePts) totalPoints, user.username username
+	$totalHighscoreQuery = "SELECT IFNULL(accomplishedPts-(possiblePts-accomplishedPts), -possiblePts) totalPoints, user.username username, user.id userID
 FROM (
     SELECT SUM(points) possiblePts, tasklist.userID userID
     FROM tasklist
