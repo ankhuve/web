@@ -7,8 +7,7 @@
 FROM accomplished JOIN user 
 ON accomplished.userID = user.id JOIN task 
 ON accomplished.taskID = task.id 
-WHERE date = '".date("Y-m-d")."' and userID = '".$_COOKIE['userID']."'
-GROUP BY username;";
+WHERE date = CURDATE() and userID = '".$_COOKIE['userID']."'";
 
 	// Dagens möjliga poäng
 	$totPtsAvailableQuery = "SELECT sum(points) available
@@ -32,6 +31,12 @@ AND tasklistDate <= CURDATE()
 WHERE userID = '".$_COOKIE['userID']."'
 GROUP BY userID;";
 
+	// Dagar från första accomplished
+	$daysOfUsageQuery = "SELECT TIMESTAMPDIFF(DAY, a.first, CURDATE()) days
+FROM (SELECT MIN(date) AS first
+FROM accomplished
+WHERE userid='".$_COOKIE['userID']."') AS a;";
+
 	$ptsToday = queryDb($conn, $totPtsTodayQuery);
 	$ptsToday = $ptsToday->fetch_object()->accomplishedToday;
 	if(is_null($ptsToday)){
@@ -51,7 +56,13 @@ GROUP BY userID;";
 		$ptsEver = 0;
 	}
 
-	$output = $ptsToday.",".$ptsAvailable.",".$ptsEver.",".$ptsAvailableEver;
+	$daysOfUsage = queryDb($conn, $daysOfUsageQuery);
+	$daysOfUsage = $daysOfUsage->fetch_object()->days;
+	if($daysOfUsage==0){
+		$daysOfUsage = 1;
+	}
+
+	$output = $ptsToday.",".$ptsAvailable.",".$ptsEver.",".$ptsAvailableEver.",".$daysOfUsage;
 
 	echo $output;
 ?>

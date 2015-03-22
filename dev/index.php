@@ -95,9 +95,20 @@
 								<!-- Pie chart goes here -->
 							</div>
 						</div>
-						
 						<!-- Stats go here -->
 					</div>
+					<div id="textStats">
+						<div id="leftStat" class="description statsTitle smaller">
+							Poäng avklarade idag: </br><span id="pointsToday"></span>
+						</div>
+						<div id="middleStat" class="description statsTitle smaller">
+							Totalt avklarade poäng:</br><span id="pointsTotal"></span>
+						</div>
+						<div id="rightStat" class="description statsTitle smaller">
+							Snittpoäng per dag:</br><span id="avgDailyPoints"></span>
+						</div>
+					</div>
+					
 				</div>
 
 				<div class="footer">

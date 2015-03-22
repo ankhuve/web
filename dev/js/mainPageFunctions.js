@@ -80,6 +80,11 @@ function generateMyStats(data){
 	var available = data.split(",")[1];
 	var accomplishedEver = data.split(",")[2];
 	var possibleEver = data.split(",")[3];
+	var daysOfUsage = data.split(",")[4];
+	var avgPts = accomplishedEver/daysOfUsage;
+	$("#pointsToday").html(accomplished);
+	$("#pointsTotal").html(accomplishedEver);
+	$("#avgDailyPoints").html(avgPts.toFixed(1));
 	drawStats(accomplished, available, accomplishedEver, possibleEver);
 }
 
