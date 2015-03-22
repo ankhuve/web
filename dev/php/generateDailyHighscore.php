@@ -21,13 +21,21 @@ ON POSSIBLEPOINTS.userID = ACCOMPLISHEDPOINTS.userID
 JOIN user ON POSSIBLEPOINTS.userID = user.id
 ORDER BY totalPoints DESC";
 	$resultObj = queryDb($conn, $dailyHighscoreQuery);
-	// echo '<div class="row">';
-	// echo '<div class="col-xs-7 col-xs-offset-1"><h4><strong>Namn</strong></h4></div>';
-	// echo '<div class="col-xs-3 centered"><h4><strong>Poäng</strong></h4></div>';
+	$numResults = $resultObj->num_rows;
+	$maxRGB = array(100, 190, 80);
+	$minRGB = array(50, 100, 40);
+	$stepsRGB = array();
+	for($i = 0;$i<=2; $i++){
+		$stepsRGB[$i] = floor(($maxRGB[$i]-$minRGB[$i])/$numResults);
+	}
+
 	$pos = 1;
-	$colorsAndPosition = array(1=>'#64bb50', 2=>'#55a244', 3=>'#4a8d3c', 4=>'#3f7833', 5=>'#36652b');
+	// $colorsAndPosition = array(1=>'#64bb50', 2=>'#55a244', 3=>'#4a8d3c', 4=>'#3f7833', 5=>'#36652b');
 	while($line = $resultObj->fetch_object()){
-		echo '<div class="goal" style="background-color: '.$colorsAndPosition[$pos].';">';
+		$redChannel = $maxRGB[0]-$stepsRGB[0]*$pos;
+		$greenChannel = $maxRGB[1]-$stepsRGB[1]*$pos;
+		$blueChannel = $maxRGB[2]-$stepsRGB[2]*$pos;
+		echo '<div class="goal" style="background-color: rgb('.$redChannel.','.$greenChannel.','.$blueChannel.');">';
 		$username = $line->username;
 		$totalPoints = $line->totalPoints;
 		$userID = $line->userID;
@@ -36,11 +44,11 @@ ORDER BY totalPoints DESC";
 			echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
 			echo '<div class="tableFix"><div class="description">Du</div></div>';
 		} else {
-			if($pos<=5){
+			// if($pos<=5){
 				echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
 				echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
 				echo '<div class="tableFix"><div class="description">'.$username.'</div></div>';
-			}
+			// }
 		}
 		echo '</div>';
 		$pos++;

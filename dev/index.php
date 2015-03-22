@@ -5,15 +5,27 @@
 		include_once("php/config.php");
 		include_once("php/functions.php");
 		$loggedIn = $_COOKIE['userID'];
-		$tasklistQuery = "SELECT count(*) numberOfTasks FROM tasklist WHERE userID = '".$loggedIn."';";
+		$tasklistQuery = "SELECT numTasksToday, numPastTasks
+						FROM (
+  						(SELECT count(*) numTasksToday, ".$loggedIn." userID
+ 						FROM tasklist 
+  						WHERE userID = ".$loggedIn." AND tasklistDate = CURDATE()) AS A
+						JOIN
+						(SELECT count(*) numPastTasks, ".$loggedIn." userID
+						FROM tasklist 
+						WHERE userID = ".$loggedIn." AND tasklistDate <= CURDATE()) AS B
+						ON A.userID = B.userID)";
 		$result = queryDb($conn, $tasklistQuery);
 		$resultObj = $result->fetch_object();
-		$numberOfTasks = $resultObj->numberOfTasks;
-		if($numberOfTasks == 0){
+		$numTasksToday = $resultObj->numTasksToday;
+		$numPastTasks = $resultObj->numPastTasks;
+		if($numTasksToday == 0 && $numPastTasks == 0){
 			Header("Location: welcome.php");
+		} else if($numTasksToday == 0 && $numPastTasks > 0) {
+			$setTodaysTasklistQuery = "INSERT INTO tasklist SELECT userID, taskID, CURDATE() FROM tasklist WHERE userID = ".$loggedIn." AND tasklistDate = (SELECT max(tasklistDate) FROM tasklist WHERE userID = ".$loggedIn.");";
+			queryDb($conn, $setTodaysTasklistQuery);
 		}
 	}
-	
 ?>
 <html lang="en">
 	<head>
