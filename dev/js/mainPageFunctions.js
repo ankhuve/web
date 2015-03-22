@@ -10,7 +10,6 @@ window.onload = function() {
 	showMyGoals();
 	getMyStats();
 	clickLog('4');
-	// var username = "";
 };
 
 var updated = new Date();

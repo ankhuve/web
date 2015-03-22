@@ -32,23 +32,26 @@ ORDER BY totalPoints DESC";
 		$redChannel = $maxRGB[0]-$stepsRGB[0]*$pos;
 		$greenChannel = $maxRGB[1]-$stepsRGB[1]*$pos;
 		$blueChannel = $maxRGB[2]-$stepsRGB[2]*$pos;
-		echo '<div class="goal" style="background-color: rgb('.$redChannel.','.$greenChannel.','.$blueChannel.');">';
+		
 		$username = $line->username;
 		$totalPoints = $line->totalPoints;
 		$userID = $line->userID;
-		if($userID == $_COOKIE['userID'] && $pos<=5){
+		if($userID == $_COOKIE['userID']){
+			echo '<div class="goal" style="background-color: #1e4678;">';
+		} else {
+			echo '<div class="goal" style="background-color: rgb('.$redChannel.','.$greenChannel.','.$blueChannel.');">';
+		}
+		
+		if($userID == $_COOKIE['userID']){
 			echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
 			echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
 			echo '<div class="tableFix"><div class="description">Du</div></div>';
 		} else {
-			// if($pos<=5){
-				echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
-				echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
-				echo '<div class="tableFix"><div class="description">'.$username.'</div></div>';
-			// }
+			echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
+			echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
+			echo '<div class="tableFix"><div class="description">'.$username.'</div></div>';
 		}
 		echo '</div>';
 		$pos++;
 	}
-	// echo "</div>";
 ?>
