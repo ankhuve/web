@@ -28,9 +28,8 @@
 	<div class="container fullWidth goalBg">
 		<div class="wrapper">
 			<div id="goalHeaders">
-				<h1 class="mdMargin center" id="chooseGoalsHeader">Välj några mål</h1>
-				<h2 class="thinHeader center">Valda mål: <span id="numChosenGoals">0</span>/5</h2>
-				<!-- <h2 class="thinHeader center" id="chooseGoalsSub">För att förbättra miljön har jag tänkt att:</h2> -->
+				<h1 class="mdMargin center" id="chooseGoalsHeader">Välj dina mål för dagen</h1>
+				<h2 class="thinHeader center" id="chooseGoalsSub">Valda mål: <span id="numChosenGoals">0</span></h2>
 			</div>
 		</div>
 		<div class="goalGrid">
@@ -40,13 +39,13 @@
 		</div>
 		<div class="bottomGreen">
 			
-			<h2 class="goalInstructions increasedPadding">Välj några mål eller gå vidare och skapa egna</h2>
+			<h2 class="goalInstructions increasedPadding">På nästa sida kommer du kunna skapa egna mål.</h2>
 			<div class="navArrows bottomFix">
 			<div class="prev">
-				<img class="arrow" src="img/prev_arrow_white.png" onclick="toWelcome()">
+				<img class="arrow" src="img/prev_arrow_white.png" onclick="window.location='welcome.php'">
 			</div>
 			<div class="next">
-				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="toCreate()">
+				<img class="arrow toCustomGoals" src="img/arrow_white.png" onclick="window.location='create.php'">
 			</div>
 		</div>
 		</div>

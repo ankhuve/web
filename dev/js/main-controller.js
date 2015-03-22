@@ -15,22 +15,26 @@ function checkIfEmpty(field) {
     	document.getElementById("userGoal").checked = true;
     }
 }
-function goBack() {
-    window.history.back()
-}
+// function goBack() {
+//     window.history.back();
+// }
 
-$("#customGoalForm").keypress(function(e) {
-    if(e.which == 10 || e.which == 13){
-        e.preventDefault();
-        addGoalFunction(function() {
-        refreshMyGoals();
-        });
+// $("#refreshGoals").click(function(){
+    
+//     refreshMyGoals();
+// });
+
+// $(".userinput").focus(function(){
+//     $(this).attr("placeholder", "none");
+// });
+
+function toggleLogo(toggle){
+    if(toggle===1){
+        $('.logoHolder').hide(200);
+    }else{
+        $('.logoHolder').show(200);
     }
-});
-
-$("#refreshGoals").click(function(){
-    refreshMyGoals();
-});
+}
 
 function refreshMyGoals(){
     xmlhttp = new XMLHttpRequest();
@@ -62,16 +66,35 @@ function toWelcome(){
     location.href="welcome.php";
 }
 
+function chooseNewGoals(){
+    $.ajax({
+        type: "GET",
+        url: "php/getTime.php",
+        success: function(data){
+            if(data<12){
+                changeAlert("allowed");
+            } else {
+                changeAlert("declined");
+            }
+            // console.log(data);
+        }
+    })
 
-function logOut(){
-    if(confirm("Du är inloggad som "+getCookie("username")+". Vill du logga ut?")){
-        location.href="php/logout.php";
-    }
-    else
-    {
-        //Cancel button pressed...
-    }
 }
+
+function changeAlert(status){
+    if(status === "allowed"){
+        if(confirm("Dina poäng för dagen kommer att nollställas om du vill välja nya mål. Vill du fortfarande göra det?")){
+            window.location="goals.php";
+        } 
+    } else {
+        alert("Du kan endast ändra dina mål innan klockan 12.");
+    }
+
+}
+
+
+
 
 // ***** AJAX TO SHOW LOGIN/REGISTER *****
 function loginOrRegister(str) {
@@ -102,21 +125,11 @@ function getCookie(cname) {
     for(var i=0; i<ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length).replace(/\+/g,' ');
     }
     return "";
 }
 
 function unsetCookie(cname) {
     document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
-
-var a=document.getElementsByTagName("a");
-for(var i=0;i<a.length;i++)
-{
-    a[i].onclick=function()
-    {
-        window.location=this.getAttribute("href");
-        return false
-    }
 }

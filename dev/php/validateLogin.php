@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include_once("functions.php");
 	include_once("config.php");
 
@@ -15,9 +14,7 @@
 			}
 
 			setcookie("userID", $id, time() + (86400 * 10), "/");
-			setcookie("username", $username, time() + (86400 *  10), "/");
-			// $_SESSION['loggedIn'] = $id;
-			// $_SESSION['username'] = $username;
+			// setcookie("username", utf8_decode($username), time() + (86400 *  10), "/");
 
 			$getUserTasks = "SELECT count(*) numTasks FROM tasklist JOIN task ON tasklist.taskID= task.id WHERE tasklist.userID =".$id.";";
 			$resultObj = queryDb($conn, $getUserTasks);
@@ -50,7 +47,7 @@
 		queryDb($conn, $newUserQuery);
 		
 		setcookie("userID", $newUserID, time() + (86400 * 10), "/");
-		setcookie("username", $username, time() + (86400 *  10), "/");
+		// setcookie("username", $username, time() + (86400 *  10), "/");
     	// $_SESSION['loggedIn'] = $id;
     	// $_SESSION['username'] = $username;
     	header("Location: ../welcome.php");

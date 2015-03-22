@@ -3,18 +3,60 @@ window.onload = function() {
 		alert("Hörröduru, du är ju inte inloggad!");
 		toLogin();
 	}
+	getUsername();
 	generateMyGoals();
 	generateTotalHighscore();
 	generateDailyHighscore();
 	showMyGoals();
 	getMyStats();
+	clickLog('4');
+	// var username = "";
 };
 
-// window.onbeforeunload = function(){
-// }
+var updated = new Date();
+var username = "";
+
+function getUsername(){
+	$.ajax({
+		type: "GET",
+		url: "php/getMyUsername.php",
+		success: function(data){
+			$(".username").html(data);
+			username = data;
+		}
+	});
+}
+
+function logOut(){
+    if(confirm("Du är inloggad som "+username+". Vill du logga ut?")){
+        location.href="php/logout.php";
+    }
+    else
+    {
+        //Cancel button pressed...
+    }
+}
+
+function slideMenu(){
+	$("#slideMenu").show();
+	$("#slideMenu").animate({
+		left: "0vw",
+	}, "fast", function(){
+		
+		$(".menubutton").attr("onclick", "slideBackMenu()")
+	})
+};
+
+function slideBackMenu(){
+	$("#slideMenu").animate({
+		left: "-70vw"
+	}, "fast", function(){
+		$("#slideMenu").hide();
+		$(".menubutton").attr("onclick", "slideMenu()")
+	})
+};
 
 function clickLog(type){
-	// console.log("Clicked "+type);
 	$.ajax({
 		type: "POST",
 		data: { type : type },
@@ -42,7 +84,15 @@ function generateMyStats(data){
 }
 
 function drawStats(completed, total, completedEver, totalEver){
-	
+	offsetDaily = 0;
+	if(parseInt(completed)>0){
+		offsetDaily = 0.1;
+	}
+
+	offsetTotal = 0;
+	if(parseInt(completedEver)>0){
+		offsetTotal = 0.1;
+	}
 	var data = google.visualization.arrayToDataTable([
 	  ['Avklarade', 'Poäng'],
 	  ['Avklarade poäng', parseInt(completed)],
@@ -55,11 +105,22 @@ function drawStats(completed, total, completedEver, totalEver){
 		['Missade poäng', parseInt(parseInt(totalEver)-parseInt(completedEver))]
 	]);
 
-	var options = {
+	var optionsDaily = {
 		legend: 'none',
+		tooltip: {trigger: 'selection'},
 		slices: {
 			0: {color: 'rgb(100, 187, 80)'},
-			1: {offset: 0.1}},
+			1: {offset: offsetDaily}},
+		backgroundColor: 'rgb(33, 33, 33)',
+		pieSliceBorderColor: 'none',
+	};
+
+	var optionsTotal = {
+		legend: 'none',
+		tooltip: {trigger: 'selection'},
+		slices: {
+			0: {color: 'rgb(100, 187, 80)'},
+			1: {offset: offsetTotal}},
 		backgroundColor: 'rgb(33, 33, 33)',
 		pieSliceBorderColor: 'none',
 	};
@@ -67,8 +128,8 @@ function drawStats(completed, total, completedEver, totalEver){
 	var chart = new google.visualization.PieChart(document.getElementById('myDailyStats'));
 	var chartTotal = new google.visualization.PieChart(document.getElementById('myTotalStats'));
 
-	chart.draw(data, options); // Rita upp dagliga stats
-	chartTotal.draw(dataTotal, options); // Rita upp totala stats
+	chart.draw(data, optionsDaily); // Rita upp dagliga stats
+	chartTotal.draw(dataTotal, optionsTotal); // Rita upp totala stats
 }
 
 function showMyGoals(){
@@ -84,7 +145,8 @@ function showMyGoals(){
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
-	// clickLog("1");
+	generateTotalHighscore();
+	generateDailyHighscore();
 }
 
 function showHighscore(){
@@ -103,7 +165,6 @@ function showHighscore(){
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".toggleDaily").attr("id", "total");
 	$(".toggleDaily").removeClass("bg1");
-	clickLog("2");
 }
 
 function showMyStats(){
@@ -119,15 +180,22 @@ function showMyStats(){
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
-	clickLog("3");
-
+	generateTotalHighscore();
+	generateDailyHighscore();
 }
 
 
 function generateMyGoals(){
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
-        document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    	var currentTime = new Date();
+    	if(updated.getDate<currentTime.getDate){
+    		document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    	} else {
+    		if(document.getElementById("myTasks").innerHTML === ""){
+    			document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
+    		}
+    	}
     }
     xmlhttp.open("GET", "php/generateMyGoals.php", true);
     xmlhttp.send();

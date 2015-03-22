@@ -17,6 +17,7 @@
 		<script src="js/createGoal.js"></script>
 		<script src="js/checkIfLoggedIn.js"></script>
 		<script src="js/main-controller.js"></script>
+		<script src="js/preventDefaultGoalform.js"></script>
 		<script type="application/javascript" src="js/fastclick.js"></script>
 		<script type="text/javascript">
 			window.addEventListener('load', function() {
@@ -31,7 +32,7 @@
 			<div id="goalHeaders">
 				<h1 class="mdMargin center" id="chooseGoalsHeader">Skapa egna mål</h1>
 				<h2 class="thinHeader center">10 poäng per mål</h2>
-				<h3 class="center"> Du har total valt <span id="totalGoals"></span>/5 mål</h3>
+				<h3 class="center"> Du har total valt <span id="totalGoals"></span> mål</h3>
 			</div>
 		</div>
 
@@ -50,14 +51,12 @@
 
 
 			<div class="bottomGreen">
-				
-				<!-- <h2 class="goalInstructions"><a href="index.php">Skapa egna mål.</a></h2> -->
 				<div class="navArrows bottomFix">
 					<div class="prev">
-						<img class="arrow" src="img/prev_arrow_white.png" onclick="toGoals()">
+						<img class="arrow" src="img/prev_arrow_white.png" onclick="window.location='goals.php'">
 					</div>
 					<div class="next">
-						<input type="submit" value="Klar!" class="doneLink">
+						<input type="submit" value="Nästa" class="doneLink">
 					</div>
 				</div>
 				

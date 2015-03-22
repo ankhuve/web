@@ -3,7 +3,23 @@
 	include_once("functions.php");
 	$fullDateToday = getdate();
 	$today = $fullDateToday['year']."-".$fullDateToday['mon']."-".$fullDateToday['mday'];
-	$dailyHighscoreQuery = "SELECT username, sum(points) totalPoints, user.id userID  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id WHERE accomplished.date = '".$today."' GROUP BY username ORDER BY totalPoints DESC;";
+	//$dailyHighscoreQuery = "SELECT username, sum(points) totalPoints, user.id userID  FROM accomplished JOIN user ON accomplished.userID = user.id JOIN task ON accomplished.taskID = task.id WHERE accomplished.date = '".$today."' GROUP BY username ORDER BY totalPoints DESC;";
+	$dailyHighscoreQuery = "SELECT IFNULL(accomplishedPts-(possiblePts-accomplishedPts), -possiblePts) totalPoints, user.username username, user.id userID
+FROM (
+    SELECT SUM(points) possiblePts, tasklist.userID userID
+    FROM tasklist
+    JOIN task ON taskID = id
+    AND tasklistDate = CURDATE() 
+    GROUP BY userID) POSSIBLEPOINTS
+LEFT JOIN
+    (SELECT SUM( points ) accomplishedPts, userID
+    FROM accomplished
+    JOIN task ON accomplished.taskID = task.id
+    WHERE date = CURDATE()
+    GROUP BY userID) ACCOMPLISHEDPOINTS
+ON POSSIBLEPOINTS.userID = ACCOMPLISHEDPOINTS.userID 
+JOIN user ON POSSIBLEPOINTS.userID = user.id
+ORDER BY totalPoints DESC";
 	$resultObj = queryDb($conn, $dailyHighscoreQuery);
 	// echo '<div class="row">';
 	// echo '<div class="col-xs-7 col-xs-offset-1"><h4><strong>Namn</strong></h4></div>';

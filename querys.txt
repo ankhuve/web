@@ -56,3 +56,22 @@ ORDER BY pointsToday DESC;
 SELECT count(clicked), userID, DATE(clicked)
 FROM clickReg
 GROUP BY userID, DATE(clicked);
+
+***** Ta bort alla tasklists efter idag. *****
+DELETE FROM tasklist WHERE userID = COOKIE['userID'] AND tasklistDate > CURDATE();
+
+***** Summera daglig avklarad poäng *****
+SELECT sum(points) ptsToday
+FROM accomplished JOIN tasklist 
+ON accomplished.userID = tasklist.userID AND 
+accomplished.date = tasklist.tasklistDate AND
+accomplished.taskID = tasklist.taskID
+JOIN task ON task.id = tasklist.taskID
+WHERE accomplished.date = CURDATE()
+
+***** Totalt avklarad poäng innan idag *****
+SELECT SUM(points), date
+FROM accomplished  JOIN task 
+ON accomplished.taskID = task.id
+WHERE date <= CURDATE() 
+GROUP BY accomplished.date

@@ -20,6 +20,8 @@
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
   	<script src="js/checkIfLoggedIn.js"></script>
   	<script src="js/main-controller.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   	<script type="application/javascript" src="js/fastclick.js"></script>
 	<script type="text/javascript">
 		window.addEventListener('load', function() {
@@ -32,68 +34,71 @@
 		<div class="headerBg center">
 			<h1> Sammanfattning </h1>
 		</div>
-		
-		<p class="center marginTop"> Om allting ser bra ut kan du klicka på nästa-knappen för att gå vidare och börja använda applikationen!</p>
-		<div class="allGoals">
-			<div class="row titles">
-				<div class="col-xs-8 col-xs-offset-1">
-					<strong>Beskrivning</strong>
+		<div class="summaryBody">
+			<p class="center instruction"> Om allting ser bra ut kan du klicka på nästa-knappen för att gå vidare och börja använda applikationen!</p>
+			<div class="allGoals">
+				<div class="row titles">
+					<div class="col-xs-7 col-xs-offset-1">
+						<div class="summaryHeader">Beskrivning</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="summaryHeader">Poäng</div>
+					</div>
 				</div>
-				<div class="col-xs-2">
-					<strong>Poäng</strong>
-				</div>
-			</div>
-			<form action="php/createTasklist.php" method="post">
-				<?php
-					$totalPoints = 0;
-					if(isset($_COOKIE['clicked'])){
+				<form action="php/createTasklist.php" method="post">
+					<?php
+						$totalPoints = 0;
+						if(isset($_COOKIE['clicked']) OR (sizeof($_POST['taskDesc']) > 0)){
+							
+							if(isset($_COOKIE['clicked'])){
+								$chosenTasks = "(".$_COOKIE['clicked'].")";
+								$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
+								$result = queryDb($conn, $chosenTasksQuery);
 
-						$chosenTasks = "(".$_COOKIE['clicked'].")";
-						$chosenTasksQuery = "SELECT * FROM task WHERE id IN ".$chosenTasks.";";
-						$result = queryDb($conn, $chosenTasksQuery);
+								while($line = $result->fetch_object()){
+									$taskID = $line->id;
+									$description = utf8_encode($line->description);
+									$points = $line->points;
+									$totalPoints += $points;
+									echo '<div class="row">';
+									echo '<div class="col-xs-8 col-xs-offset-1">';
+									echo "<input type='checkbox' class='marginRight' name='taskID[]' value=$taskID checked='checked'><span class='taskDescription'>".$description."</span></input>";
+									echo '</div>';
+									echo '<div class="col-xs-2">'.$points.'</div>';
+									echo '</div>';
+								}
+							}
+						}
 
-						while($line = $result->fetch_object()){
-							$taskID = $line->id;
-							$description = utf8_encode($line->description);
-							$points = $line->points;
-							$totalPoints += $points;
+						$customs = $_POST['taskDesc'];
+						$numCustoms = sizeof($customs);
+						if($numCustoms>0){
+							foreach($customs as $customTaskDescription){
 							echo '<div class="row">';
 							echo '<div class="col-xs-8 col-xs-offset-1">';
-							echo "<input type='checkbox' class='marginRight' name='taskID[]' value=$taskID checked='checked'><span class='taskDescription'>".$description."</span></input>";
+							echo "<input type='checkbox' class='marginRight' name='taskDesc[]' value='".$customTaskDescription."' checked='checked'>".$customTaskDescription."</input>";
 							echo '</div>';
-							echo '<div class="col-xs-2">'.$points.'</div>';
+							echo '<div class="col-xs-2">10</div>';
 							echo '</div>';
+							$totalPoints += 10;
+							}
 						}
-					}
-
-					$customs = $_POST['taskDesc'];
-					$numCustoms = sizeof($customs);
-					if($numCustoms>0){
-						foreach($customs as $customTaskDescription){
-						echo '<div class="row">';
-						echo '<div class="col-xs-8 col-xs-offset-1">';
-						echo "<input type='checkbox' class='marginRight' name='taskDesc[]' value='".$customTaskDescription."' checked='checked'>".$customTaskDescription."</input>";
-						echo '</div>';
-						echo '<div class="col-xs-2">10</div>';
-						echo '</div>';
-						}
-					}
-					echo '<div class="totalPoints"><p>Med dessa mål kan du totalt tjäna <strong>'.$totalPoints.'</strong> poäng om dagen.</p></div>';
-				?>
+						echo '<hr class="customDivider"/>';
+						echo '<div class="totalPoints"><p>Med dessa mål kan du totalt tjäna <strong>'.$totalPoints.'</strong> poäng om dagen.</p></div>';
+					?>
+			</div>
 		</div>
-			<div class="bottomLink toOwnGoals">
-				<input class="removeInputStyling" value="Tillbaka" onclick="toGoals()">
+			<div id="bottomSummaryLinks">
+				<div class="bottomLink toOwnGoals">
+					<input type="button" class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"/>
+					<!-- <input class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"> -->
+				</div>
+				<div class="bottomLink toIndex">
+					<input type="submit" class="removeInputStyling" value="Klar!" onclick="unsetCookie(clicked)">
+				</div>
 			</div>
-			<div class="bottomLink toIndex">
-				<input type="submit" class="removeInputStyling" value="Nästa" onclick="unsetCookie(clicked)">
-			</div>
-
 		</form>
-		
 
 	</div>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="js/main-controller.js"></script>
 </body>
 </html>
