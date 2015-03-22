@@ -44,7 +44,11 @@
 		$hashedPassword = passwordHash($password);
 		$newUserQuery = "INSERT INTO user VALUES(".$newUserID.",'".$username."','".$hashedPassword."');";
 
+		$userGroup = 0; // Ändra här i de olika programmen, 0 är echo och 1 är delta.
+		$assignUserGroup = "INSERT INTO userGroup VALUES(".$newUserID.",".$userGroup.");";
+
 		queryDb($conn, $newUserQuery);
+		queryDb($conn, $assignUserGroup);
 		
 		setcookie("userID", $newUserID, time() + (86400 * 10), "/");
 		// setcookie("username", $username, time() + (86400 *  10), "/");
