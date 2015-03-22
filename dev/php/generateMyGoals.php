@@ -4,6 +4,10 @@
 	$fullDateToday = getdate();
 	$today = $fullDateToday['year']."-".$fullDateToday['mon']."-".$fullDateToday['mday'];
 
+	// function consoleLog($message){
+	// 	$output.= "<script type='text/javascript'>console.log('".$message."');</script>";
+	// }
+	// consoleLog("Mjao");
 	$notAccomplishedTasksQuery = "SELECT * FROM task 
 								WHERE id 
 								IN(
@@ -53,7 +57,6 @@
     		"points" => $points,
     		"accomplished" => true,
     		);
-
 		array_push($results, $taskInfo);
 	}
 
@@ -69,6 +72,7 @@
     		);
 		array_push($results, $taskInfo);
 	}
+	$output.= "<p style='color:white;'> Showing ".sizeof($results)." goals</p>";
 
 	function compare($a, $b){
 	    if ($a['points'] == $b['points']) {
@@ -79,23 +83,32 @@
 
 	usort($results, "compare");
 
+	// $output = "<p style='color:white;'> Showing ".sizeof($results)." goals</p>";
+
+	$output = "";
 	foreach ($results as $key => $value) {
-		echo '<div class="goal" style="background-color: '.$colorsAndPoints[$value["points"]].';" onclick="changeAccomplished(this)">';
+		$taskID = $value['taskID'];
+		$description = $value['description'];
+		$points = $value['points'];
+		
+		$output .= '<div class="goal" style="background-color: '.$colorsAndPoints[$points].';" onclick="changeAccomplished(this)">';
 		if($value["accomplished"]){
-			echo '<div class="pointCircle checkBg"><div class="points" style="display: none;">'.$value["points"].'p</div></div>';
+			$output .= '<div class="pointCircle checkBg"><div class="points" style="display: none;">'.$points.'p </div></div>';
+			$output .= '<div class="tableFix">';
+			$output .= '<div class="description accomplished" id="'.$taskID.'" style="color: rgba(255, 255, 255, 0.5);">';
+			$output .= $description;
+			$output .= '</div>';
+			$output .= '</div>';
 		}else{
-			echo '<div class="pointCircle"><div class="points">'.$value["points"].'p</div></div>';
+			$output .= '<div class="pointCircle"><div class="points">'.$points.'p </div></div>';
+			$output .= '<div class="tableFix">';
+			$output .= '<div class="description unaccomplished" id="'.$taskID.'" style="color:#ffffe8;">';
+			$output .= $description;
+			$output .= '</div>';
+			$output.= '</div>';
 		}
-		echo '<div class="tableFix">';
-		if($value["accomplished"]){
-			echo '<div class="description accomplished" id="'.$value["taskID"].'" style="color: rgba(255, 255, 255, 0.5);">';
-		} else {
-			echo '<div class="description unaccomplished" id="'.$value["taskID"].'" style="color:#ffffe8;">';
-		}
-		echo $value["description"];
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
+		$output .= "</div>";
 	}
+	echo $output;
 	
 ?>

@@ -186,37 +186,34 @@ function showMyStats(){
 
 
 function generateMyGoals(){
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function(){
-    	var currentTime = new Date();
-    	if(updated.getDate<currentTime.getDate){
-    		document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
-    	} else {
-    		if(document.getElementById("myTasks").innerHTML === ""){
-    			document.getElementById("myTasks").innerHTML = xmlhttp.responseText;
-    		}
-    	}
-    }
-    xmlhttp.open("GET", "php/generateMyGoals.php", true);
-    xmlhttp.send();
+	$.ajax({
+		type: "GET",
+		url: "php/generateMyGoals.php",
+		success: function(data){
+			document.getElementById("myTasks").innerHTML = data;
+			// console.log(data);
+		}
+	})
 }
 
 function generateTotalHighscore(){
-	xmlhttpHS = new XMLHttpRequest();
-	xmlhttpHS.onreadystatechange=function(){
-		document.getElementById("highscoreTotal").innerHTML = xmlhttpHS.responseText;
-	}
-	xmlhttpHS.open("GET", "php/generateTotalHighscore.php", true);
-	xmlhttpHS.send();
+	$.ajax({
+		type: "GET",
+		url: "php/generateTotalHighscore.php",
+		success: function(data){
+			document.getElementById("highscoreTotal").innerHTML = data;
+		}
+	})
 }
 
 function generateDailyHighscore(){
-	xmlhttpDHS = new XMLHttpRequest();
-	xmlhttpDHS.onreadystatechange=function(){
-		document.getElementById("highscoreDaily").innerHTML = xmlhttpDHS.responseText;
-	}
-	xmlhttpDHS.open("GET", "php/generateDailyHighscore.php", true);
-	xmlhttpDHS.send();
+	$.ajax({
+		type: "GET",
+		url: "php/generateDailyHighscore.php",
+		success: function(data){
+			document.getElementById("highscoreDaily").innerHTML = data;
+		}
+	})
 }
 
 function changeAccomplished(tag){
