@@ -62,7 +62,9 @@
 							<img class="arrow" src="img/prev_arrow.png">
 						</div>
 						<div class="next">
-							<p class="nextText" onclick="toGoals()">Gå vidare</p>
+							<a href="goals.php">
+								<p class="nextText">Gå vidare</p>
+							</a>
 						</div>
 					</div>
 				</div>
