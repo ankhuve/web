@@ -26,17 +26,9 @@ body{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	/*background-color:#212121;*/
-}
-
-#loginScreen{
-
 }
 
 .goalBg{
-	/*background-image: url("img/goalbg_wide.jpg");*/
-	/*background-size: cover;*/
-	/*background-position: center;*/
 	background-color:#212121;
 }
 
@@ -563,7 +555,7 @@ h3{
 
 .toIndex{
 	position: absolute;
-	bottom: 30px;
+	bottom: 3vh;
 	padding-top: 0;
 	padding-bottom: 0; 
 	width: 40vw;
@@ -724,6 +716,11 @@ input.marginRight{
 	background-position: center;
 }
 
+#statsView{
+	height: 75vh;
+	overflow: scroll;
+}
+
 .positionCircle{
 	background-color: rgb(50, 50, 50);
 	border-radius: 5.5vh;
@@ -789,7 +786,7 @@ input.marginRight{
 	text-align: center;
 	position: relative;
 	bottom: -10vh;
-	z-index: 999;
+	z-index: 50;
 }
 
 .pieChart{
@@ -934,4 +931,219 @@ li{
 #highscoreView{
 	height: 75vh;
 	overflow: scroll;
+}
+
+/* iPhone 4 specific stylings */
+@media only screen and (device-width : 320px) and (device-height : 480px) and (orientation : portrait) {
+	.logoHolder{
+		padding-top: 48px;
+	}
+	.logo{
+		height: 144px;
+	}
+	.loginForm{
+		padding-top: 24px;
+	}
+	.bottomBar{
+		margin-top: 48px;
+		margin-left: 64px;
+		font-size: 14px;
+	}
+	.userinput{
+		border: #ffffe8 solid 2px;
+		border-radius: 39px;
+		padding: 14px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 14px;
+		margin-top: 34px;
+		height: 38px;
+	}
+	#pw{
+		margin-top: 14px;
+	}
+	.goalButton{
+		height: 115px;
+		font-size: 13px;
+	}
+	.goalGrid{
+		height: 264px;
+		padding-top: 14px;
+		width: 320px;
+		bottom: 82px;
+	}
+	#chooseGoalsHeader{
+		font-size: 29px;
+	}
+	.ownGoal{
+		margin-left: 22px;
+		margin-right: 22px;
+	}
+	.bottomGreen{
+		height: 82px;
+		width: 320px;
+	}
+	#bottomSummaryLinks{
+		height: 72px;
+		width: 320px;
+	}
+	.toOwnGoals{
+		margin-left: 10px;
+		margin-top: 14px;
+		width: 128px;
+		left: 16px;
+	}
+	.toIndex{
+		margin-top: 14px;
+		width: 128px;
+		bottom: 14px;
+	}
+	.headerBg{
+		height: 96px;
+	}
+	.headerBg h1{
+		padding-top: 38px;
+	}
+	.center.instruction{
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 14px;
+	}
+	.indexHeader{
+		height: 48px;
+		width: 320px;
+	}
+	.button{
+		height: 24px;
+		width: 24px;
+		margin: 10px;
+	}
+	.headerTitle{
+		font-size: 24px;
+	}
+	#slideMenu{
+		width: 224px;
+		height: 343px;
+		min-width: 224px;
+		top: 48px;
+		font-size: 19px;
+		box-shadow: rgba(0, 0, 0, 0.3) 6px 0px 13px 0px;
+	}
+	#userInfo{
+		padding-top: 26px;
+		padding-bottom: 26px;
+		max-height: 72px;
+		height: 24px; 
+	}
+	nav ul li{
+		padding-left: 25px;
+		padding-bottom: 24px;
+		padding-top: 14px;
+	}
+	.userIcon{
+		height: 19px;
+		margin-right: 16px;
+	}
+	.sideMenuBottomFix{
+		bottom: 0px;
+		width: 199px;
+		padding-top: 24px;
+	}
+	#logoutButton{
+		height: 16px;
+		width: 16px;
+		margin: 6px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	#myTasks{
+		height: 360px;
+	}
+	.goal{
+		width: 320px;
+		height: 68px;
+		font-size: 14px;
+	}
+	.pointCircle{
+		height: 54px;
+		width: 54px;
+		border-radius: 54px;
+		margin: 7px;
+		background-size: 48px 48px;
+	}
+	.description{
+		width: 224px;
+	}
+	.points{
+		line-height: 54px;
+	}
+	.footer{
+		height: 15%;
+		width: 100%;
+		z-index: 100;
+	}
+	.tab{
+		width: 33%;
+		background-size: 24px;
+	}
+	.container.offsetHeader{
+		padding-top: 48px;
+	}
+	#highscoreView{
+		height: 360px;
+	}
+	.positionCircle{
+		height: 26px;
+		width: 26px;
+		border-radius: 26px;
+		margin-left: 5px;
+		margin-right: 12px;
+	}
+	.position{
+		line-height: 26px;
+		font-size: 12px;
+	}
+	.toggleDaily{
+		height: 38px;
+		width: 38px;
+		border-radius: 38px;
+		background-size: 19px;
+		bottom: 86px;
+		right: 14px;
+	}
+	.toggle{
+		line-height: 38px;
+	}
+	.dailyStats{
+		width: 160px;
+	}
+	.statsTitle{
+		font-size: 14px;
+		bottom: -48px;
+	}
+	.pieChart{
+		width: 160px;
+		height: 240px;
+	}
+	.totalStats{
+		width: 160px;
+	}
+	#leftStat{
+		bottom: 29px;
+		padding-bottom: 7px;
+	}
+	#middleStat{
+		bottom: 29px;
+		padding-bottom: 7px;
+	}
+	#rightStat{
+		bottom: 29px;
+		padding-bottom: 7px;
+	}
+	#outer{
+		background-color: rgb(33, 33, 33);
+	}
+	#statsView{
+		height: 340px;
+	}
 }

@@ -46,26 +46,6 @@ function refreshMyGoals(){
     xmlhttp.send();
 }
 
-function toLogin(){
-    location.href="login.php";
-}
-
-function toSummary(){
-    location.href="summary.php";
-}
-
-function toGoals(){
-    location.href="goals.php";
-}
-
-function toCreate(){
-    location.href="create.php";
-}
-
-function toWelcome(){
-    location.href="welcome.php";
-}
-
 function chooseNewGoals(){
     $.ajax({
         type: "GET",

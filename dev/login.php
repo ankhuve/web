@@ -40,8 +40,8 @@
 					</div>
 					<form action="php/validateLogin.php" method="post">
 						<div class="col-xs-12 loginForm">
-							<input class="userinput" type="username" name="username" placeholder="Username" onchange="loginOrRegister(this.value)" onfocus="this.placeholder = '';toggleLogo(1)" onblur="this.placeholder = 'Username';toggleLogo(0)">
-							<input class="userinput" id="pw" type="password" name="password" placeholder="*********" onfocus="this.placeholder = '';toggleLogo(1)" onblur="this.placeholder = '*********';toggleLogo(0)">
+							<input class="userinput" type="username" name="username" placeholder="Username" onchange="loginOrRegister(this.value)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							<input class="userinput" id="pw" type="password" name="password" placeholder="*********" onfocus="this.placeholder = ''" onblur="this.placeholder = '*********'">
 						</div>
 					
 						<div class="col-xs-12 bottomBar" id="loginOrRegister">
