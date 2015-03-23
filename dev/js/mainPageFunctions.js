@@ -28,7 +28,8 @@ function getUsername(){
 
 function logOut(){
     if(confirm("Du är inloggad som "+username+". Vill du logga ut?")){
-        location.href="php/logout.php";
+    	unsetCookie('userID');
+        window.location="php/logout.php";
     }
     else
     {
@@ -39,7 +40,7 @@ function logOut(){
 function slideMenu(){
 	$("#slideMenu").show();
 	$("#slideMenu").animate({
-		left: "0vw",
+		left: "0px",
 	}, "fast", function(){
 		
 		$(".menubutton").attr("onclick", "slideBackMenu()")
@@ -48,7 +49,7 @@ function slideMenu(){
 
 function slideBackMenu(){
 	$("#slideMenu").animate({
-		left: "-70vw"
+		left: "-70%"
 	}, "fast", function(){
 		$("#slideMenu").hide();
 		$(".menubutton").attr("onclick", "slideMenu()")
@@ -141,7 +142,7 @@ function showMyGoals(){
 	$("#highscoreView").hide();
 	$("#statsView").hide()
 	$(".headerTitle").html("Mina mål");
-	$(".headerTitle").animate({left: "-10vw"}, 50, "linear");
+	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
 	$(".highscore").css({backgroundColor: ''});
 	$(".myGoals").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
@@ -160,7 +161,7 @@ function showHighscore(){
 	$("#goalView").hide();
 	$("#statsView").hide();
 	$(".headerTitle").html("Daglig topplista");
-	$(".headerTitle").animate({left: "-4vw"}, 50, "linear");
+	$(".headerTitle").animate({left: "-4%"}, 50, "linear");
 	$(".highscore").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
 	$(".myGoals").css({backgroundColor: 'rgb(33, 33, 33)'});
@@ -177,7 +178,7 @@ function showMyStats(){
 	$("#goalView").hide();
 	$("#highscoreView").hide();
 	$(".headerTitle").html("Statistik");
-	$(".headerTitle").animate({left: "-10vw"}, 50, "linear");
+	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
 	$(".highscore").css({backgroundColor: ''});
 	$(".myGoals").css({backgroundColor: ''});
 	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
