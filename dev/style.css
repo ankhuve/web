@@ -930,3 +930,8 @@ li{
 .smaller{
 	font-size: 2.5vh;
 }
+
+#highscoreView{
+	height: 75vh;
+	overflow: scroll;
+}
