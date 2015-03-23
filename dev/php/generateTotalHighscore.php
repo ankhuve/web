@@ -42,15 +42,15 @@ ORDER BY totalPoints DESC";
 			echo '<div class="goal" style="background-color: rgb('.$redChannel.','.$greenChannel.','.$blueChannel.');">';
 		}
 		
-		if($userID == $_COOKIE['userID']){
-			echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
-			echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
-			echo '<div class="tableFix"><div class="description">Du</div></div>';
-		} else {
+		// if($userID == $_COOKIE['userID']){
+		// 	echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
+		// 	echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
+		// 	echo '<div class="tableFix"><div class="description">Du</div></div>';
+		// } else {
 			echo '<div class="pointCircle"><div class="points">'.$totalPoints.'p</div></div>';
 			echo '<div class="tableFix"><div class="positionCircle"><div class="position">'.$pos.'</div></div></div>';
 			echo '<div class="tableFix"><div class="description">'.$username.'</div></div>';
-		}
+		// }
 		echo '</div>';
 		$pos++;
 	}
