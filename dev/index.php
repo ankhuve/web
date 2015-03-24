@@ -81,19 +81,6 @@
 					<div id="myTasks" onload="generateMyGoals()"></div>
 				</div>
 
-				<!-- KOMMENTERA BORT I DELTA -->
-				<div id="highscoreView">
-					<div id="highscoreTotal" onload="generateTotalHighscore()">
-						<!-- Highscores go here -->
-					</div>
-					
-					
-					<div id="highscoreDaily" onload="generateDailyHighscore()">
-						<!-- Highscores go here -->
-					</div>
-					<div class="toggleDaily" onclick="toggleHighscore()" id="total"><div class="toggle"></div></div>
-				</div>
-
 				<div id="statsView">
 					<div id="myStats">
 						<div class="dailyStats">
@@ -126,9 +113,6 @@
 
 				<div class="footer">
 					<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
-					</div>
-					<!-- KOMMENTERA BORT I DELTA -->
-					<div class="tab highScore" onclick="showHighscore();clickLog('2')">
 					</div>
 					<div class="tab stats" onclick="showMyStats();clickLog('3')">
 					</div>

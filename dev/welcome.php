@@ -39,29 +39,13 @@
 				<div class="dragend-page" data-role="welcomeInstruction" id="1">
 					<h2 class="welcomeInstructions">Här kan du välja eller skapa några intressanta miljövänliga mål som du vill uppnå dagligen.</h2>
 					<p id="swipeInstruction">(dra höger för nästa)</p>
-					<!-- <div class="navArrows">
-						<div class="next">
-							<img class="arrow" src="img/arrow.png">
-						</div>
-					</div> -->
 				</div>
 				<div class="dragend-page" data-role="welcomeInstruction" id="2">
 					<h2 class="welcomeInstructions">Målen du väljer ska på något sätt minska ditt ekologiska fotavtryck.</h2>
-					<!-- <div class="navArrows">
-						<div class="prev">
-							<img class="arrow" src="img/prev_arrow.png">
-						</div>
-						<div class="next">
-							<img class="arrow" src="img/arrow.png">
-						</div>
-					</div> -->
 				</div>
 				<div class="dragend-page" data-role="welcomeInstruction" id="3">
 					<h2 class="welcomeInstructions">Det ska vara saker du vill göra för att förbättra miljön - välj alltså inte saker du redan gör.</h2>
 					<div class="navArrows">
-						<!-- <div class="prev">
-							<img class="arrow" src="img/prev_arrow.png">
-						</div> -->
 						<div class="next">
 							<img class="arrow" src="img/arrow.png" onclick="window.location='goals.php'">
 						</div>

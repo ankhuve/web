@@ -6,10 +6,6 @@ window.onload = function() {
 	getUsername();
 	generateMyGoals();
 
-	// KOMMENTERA BORT I DELTA 
-	generateTotalHighscore();
-	generateDailyHighscore();
-
 	showMyGoals();
 	getMyStats();
 	clickLog('4');
@@ -143,48 +139,16 @@ function drawStats(completed, total, completedEver, totalEver){
 function showMyGoals(){
 	$("#goalView").show();
 
-	// KOMMENTERA BORT I DELTA
-	$("#highscoreView").hide();
-
 	$("#statsView").hide()
 	$(".headerTitle").html("Mina mål");
 	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
 
-	// KOMMENTERA BORT I DELTA
-	$(".highscore").css({backgroundColor: ''});
-
 	$(".myGoals").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
-
-	// KOMMENTERA BORT I DELTA
-	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
-
-	// KOMMENTERA BORT I DELTA
-	generateTotalHighscore();
-	generateDailyHighscore();
-}
-
-// KOMMENTERA BORT I DELTA
-function showHighscore(){
-	$("#highscoreView").show();
-	$("#highscoreTotal").hide();
-	$("#highscoreDaily").show();
-	$("#goalView").hide();
-	$("#statsView").hide();
-	$(".headerTitle").html("Daglig topplista");
-	$(".headerTitle").animate({left: "-4%"}, 50, "linear");
-	$(".highscore").css({backgroundColor: 'rgb(65, 65, 65)'});
-	$(".stats").css({backgroundColor: ''});
-	$(".myGoals").css({backgroundColor: 'rgb(33, 33, 33)'});
-	$(".highscore").css({borderTop: 'solid 3px #64bb50'});
-	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
-	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
-	$(".toggleDaily").attr("id", "total");
-	$(".toggleDaily").removeClass("bg1");
 }
 
 function showMyStats(){
@@ -192,27 +156,14 @@ function showMyStats(){
 	$("#statsView").show();
 	$("#goalView").hide();
 
-	// KOMMENTERA BORT I DELTA
-	$("#highscoreView").hide();
-
 	$(".headerTitle").html("Statistik");
 	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
-
-	// KOMMENTERA BORT I DELTA
-	$(".highscore").css({backgroundColor: ''});
 
 	$(".myGoals").css({backgroundColor: ''});
 	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
 
-	// KOMMENTERA BORT I DELTA
-	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
-
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
-
-	// KOMMENTERA BORT I DELTA
-	generateTotalHighscore();
-	generateDailyHighscore();
 }
 
 
@@ -223,28 +174,6 @@ function generateMyGoals(){
 		success: function(data){
 			document.getElementById("myTasks").innerHTML = data;
 			// console.log(data);
-		}
-	})
-}
-
-// KOMMENTERA BORT I DELTA
-function generateTotalHighscore(){
-	$.ajax({
-		type: "GET",
-		url: "php/generateTotalHighscore.php",
-		success: function(data){
-			document.getElementById("highscoreTotal").innerHTML = data;
-		}
-	})
-}
-
-// KOMMENTERA BORT I DELTA
-function generateDailyHighscore(){
-	$.ajax({
-		type: "GET",
-		url: "php/generateDailyHighscore.php",
-		success: function(data){
-			document.getElementById("highscoreDaily").innerHTML = data;
 		}
 	})
 }
@@ -270,10 +199,6 @@ function changeAccomplished(tag){
 	        url: 'php/unAccomplishGoal.php',
 	        data: { taskID : taskID },
 	        success: function(){
-	        	// KOMMENTERA BORT I DELTA
-	        	generateTotalHighscore();
-				generateDailyHighscore();
-
 				getMyStats();
 	        }
     });
@@ -288,30 +213,9 @@ function changeAccomplished(tag){
         	type: "POST",
         	url: 'php/accomplishGoal.php',
         	data: { taskID : taskID },
-        	success: function(){
-        		// KOMMENTERA BORT I DELTA
-        		generateTotalHighscore();
-				generateDailyHighscore();
-				
+        	success: function(){				
 				getMyStats();
         	}
     	});
 	}
 }
-
-// KOMMENTERA BORT I DELTA
-function toggleHighscore(){
-	if($(".toggleDaily").attr("id")==="daily"){
-		$("#highscoreTotal").hide(200);
-		$("#highscoreDaily").show(200);
-		$(".headerTitle").html("Daglig topplista");
-		$(".toggleDaily").attr("id", "total");
-		$(".toggleDaily").removeClass("bg1");
-			}else{
-		$("#highscoreTotal").show(200);
-		$("#highscoreDaily").hide(200);
-		$(".headerTitle").html("Total topplista");
-		$(".toggleDaily").attr("id", "daily");
-		$(".toggleDaily").addClass("bg1");
-	}
-};
