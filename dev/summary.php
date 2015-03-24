@@ -89,12 +89,20 @@
 			</div>
 		</div>
 			<div id="bottomSummaryLinks">
-				<div class="bottomLink toOwnGoals">
-					<input type="button" class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"/>
-					<!-- <input class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"> -->
+				<div class="outerBottomLink">
+					<center>
+						<div class="bottomLink toOwnGoals">
+							<input type="button" class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"/>
+							<!-- <input class="removeInputStyling" value="Tillbaka" onclick="window.location='create.php'"> -->
+						</div>
+					</center>
 				</div>
-				<div class="bottomLink toIndex">
-					<input type="submit" class="removeInputStyling" value="Klar!" onclick="unsetCookie(clicked)">
+				<div class="outerBottomLink">
+					<center>
+						<div class="bottomLink toIndex">
+							<input type="submit" class="removeInputStyling" value="Klar!" onclick="unsetCookie(clicked)">
+						</div>
+					</center>
 				</div>
 			</div>
 		</form>

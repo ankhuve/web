@@ -28,7 +28,7 @@
 	<div class="container fullWidth goalBg">
 		<div class="wrapper">
 			<div id="goalHeaders">
-				<h1 class="mdMargin center" id="chooseGoalsHeader">Välj dina mål för dagen</h1>
+				<h1 class="mdMargin center" id="chooseGoalsHeader">Välj dina dagliga mål</h1>
 				<h2 class="thinHeader center" id="chooseGoalsSub">Valda mål: <span id="numChosenGoals">0</span></h2>
 			</div>
 		</div>

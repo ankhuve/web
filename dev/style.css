@@ -38,11 +38,8 @@ body{
 
 }
 .summaryBg{
-	/*background-image: url("img/small_leaves.jpg");*/
 	background-color:#212121;
 	min-height: 100vh;
-	/*background-size: cover;*/
-	/*background-repeat: no-repeat;*/
 	background-position: 15% 20vh;
 }
 
@@ -62,11 +59,11 @@ body{
 
 #bottomSummaryLinks {
   background-color: rgba(0,0,0,0.5);
-  /*background-color:#212121;*/
   position: absolute;
+  padding: 5%;
   bottom: 0px;
-  height: 15vh;
-  width: 100vw;
+  height: 15%;
+  width: 100%;
   display: table;
 }
 
@@ -132,13 +129,11 @@ body{
 }
 
 .createGoal{
-	/*height: 30pt;*/
 	background-color: #55a244;
 	color: #ffffe8;
 	margin-top: 30px;
 	font-size: 22pt;
 	font-weight: 300;
-	/*border: 2px solid white;*/
 	border-radius: 30px;
 	height: 120%;
 	width: 80%;
@@ -150,7 +145,6 @@ body{
 	width: 100vw;
 	color:white;
 	font-size:16px;
-	/*SYNK*/
 	overflow: scroll;
 	text-align: left;
 }
@@ -230,6 +224,12 @@ a:active, a:visited, a:link {
 	padding-top: 20vh;
 	padding-left: 5%;
 	padding-right: 5%;
+}
+
+#swipeInstruction{
+	color: rgba(85, 162, 68, 0.5);
+	bottom: -5%;
+	position: relative;
 }
 
 h1{
@@ -553,37 +553,23 @@ h3{
 	}
 }
 
-.toIndex{
-	position: absolute;
-	bottom: 3vh;
-	padding-top: 0;
-	padding-bottom: 0; 
-	width: 40vw;
-	height: 45px;
-	right: 5vw;
+.outerBottomLink{
+	display: table-cell;
+	width: 50%;
 }
 
-.toIndex input{
-	padding-top: 7px;
-	vertical-align: middle;
+.toIndex{
+	display: table-cell;
+	width: 60%;
+	height: 80%;
 }
 
 .toOwnGoals{
-	position: initial;
-	bottom: 30px;
-	padding-top: 0;
-	padding-bottom: 0; 
-	margin-left: 3vw;
-	margin-top: 3vh;
-	width: 40vw;
-	height: 45px;
-	left: 5vw;
+	display: table-cell;
+	width: 60%;
+	height: 80%;
 }
 
-.toOwnGoals input{
-	padding-top: 7px;
-	vertical-align: middle;
-}
 @media screen and (max-height: 540px){
 	.toIndex{
 		font-size: bottom: 5px;
@@ -643,7 +629,6 @@ input.marginRight{
 	width: 100vw;
 	height: 15vh;
 	display: table;
-	/*border-bottom: solid 1px rgb(33, 33, 33);*/
 	font-family: "Oswald";
 	font-size: 3vh;
 }
@@ -792,7 +777,6 @@ input.marginRight{
 .pieChart{
 	width: 50vw;
 	height: 50vh;
-	/*display: inline;*/
 }
 
 #myStats{
@@ -837,7 +821,6 @@ input.marginRight{
 	width: 170vw;
 	position: absolute;
 	display: table;
-	/*left: -40vw;*/
 	overflow: hidden;
 }
 
@@ -859,8 +842,6 @@ li{
 	display: inline;
 	margin-bottom: 0;
 	margin-left: 0;
-	/*position: relative;*/
-	/*bottom: 5vh;*/
 }
 
 .sideMenuBottomFix{
@@ -875,10 +856,7 @@ li{
 	background-color: rgba(0,0,0,0.5);
 	padding-top: 5.5vh;
 	padding-bottom: 5.5vh;
-	/*text-align: center;*/
-	/*padding-left: 0;*/
 	max-height: 15vh;
-	/*box-shadow: 0 1vmin 2vmin rgba(0,0,0,0.6);*/
 }
 
 .userIcon{
