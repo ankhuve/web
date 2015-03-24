@@ -15,18 +15,6 @@ function checkIfEmpty(field) {
     	document.getElementById("userGoal").checked = true;
     }
 }
-// function goBack() {
-//     window.history.back();
-// }
-
-// $("#refreshGoals").click(function(){
-    
-//     refreshMyGoals();
-// });
-
-// $(".userinput").focus(function(){
-//     $(this).attr("placeholder", "none");
-// });
 
 function toggleLogo(toggle){
     if(toggle===1){

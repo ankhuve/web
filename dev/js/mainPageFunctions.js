@@ -1,12 +1,15 @@
 window.onload = function() {
 	if(getCookie("userID")===""){
-		alert("Hörröduru, du är ju inte inloggad!");
+		alert("Du är inte inloggad!");
 		toLogin();
 	}
 	getUsername();
 	generateMyGoals();
+
+	// KOMMENTERA BORT I DELTA 
 	generateTotalHighscore();
 	generateDailyHighscore();
+
 	showMyGoals();
 	getMyStats();
 	clickLog('4');
@@ -139,21 +142,33 @@ function drawStats(completed, total, completedEver, totalEver){
 
 function showMyGoals(){
 	$("#goalView").show();
+
+	// KOMMENTERA BORT I DELTA
 	$("#highscoreView").hide();
+
 	$("#statsView").hide()
 	$(".headerTitle").html("Mina mål");
 	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
+
+	// KOMMENTERA BORT I DELTA
 	$(".highscore").css({backgroundColor: ''});
+
 	$(".myGoals").css({backgroundColor: 'rgb(65, 65, 65)'});
 	$(".stats").css({backgroundColor: ''});
+
+	// KOMMENTERA BORT I DELTA
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+
 	$(".myGoals").css({borderTop: 'solid 3px #64bb50'});
 	$(".stats").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	generateMyGoals();
+
+	// KOMMENTERA BORT I DELTA
 	generateTotalHighscore();
 	generateDailyHighscore();
 }
 
+// KOMMENTERA BORT I DELTA
 function showHighscore(){
 	$("#highscoreView").show();
 	$("#highscoreTotal").hide();
@@ -176,15 +191,26 @@ function showMyStats(){
 	getMyStats();
 	$("#statsView").show();
 	$("#goalView").hide();
+
+	// KOMMENTERA BORT I DELTA
 	$("#highscoreView").hide();
+
 	$(".headerTitle").html("Statistik");
 	$(".headerTitle").animate({left: "-10%"}, 50, "linear");
+
+	// KOMMENTERA BORT I DELTA
 	$(".highscore").css({backgroundColor: ''});
+
 	$(".myGoals").css({backgroundColor: ''});
 	$(".stats").css({backgroundColor: 'rgb(65, 65, 65)'});
+
+	// KOMMENTERA BORT I DELTA
 	$(".highscore").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
+
 	$(".myGoals").css({borderTop: 'solid 3px rgb(65, 65, 65)'});
 	$(".stats").css({borderTop: 'solid 3px #64bb50'});
+
+	// KOMMENTERA BORT I DELTA
 	generateTotalHighscore();
 	generateDailyHighscore();
 }
@@ -201,6 +227,7 @@ function generateMyGoals(){
 	})
 }
 
+// KOMMENTERA BORT I DELTA
 function generateTotalHighscore(){
 	$.ajax({
 		type: "GET",
@@ -211,6 +238,7 @@ function generateTotalHighscore(){
 	})
 }
 
+// KOMMENTERA BORT I DELTA
 function generateDailyHighscore(){
 	$.ajax({
 		type: "GET",
@@ -242,8 +270,10 @@ function changeAccomplished(tag){
 	        url: 'php/unAccomplishGoal.php',
 	        data: { taskID : taskID },
 	        success: function(){
+	        	// KOMMENTERA BORT I DELTA
 	        	generateTotalHighscore();
 				generateDailyHighscore();
+
 				getMyStats();
 	        }
     });
@@ -259,14 +289,17 @@ function changeAccomplished(tag){
         	url: 'php/accomplishGoal.php',
         	data: { taskID : taskID },
         	success: function(){
+        		// KOMMENTERA BORT I DELTA
         		generateTotalHighscore();
 				generateDailyHighscore();
+				
 				getMyStats();
         	}
     	});
 	}
 }
 
+// KOMMENTERA BORT I DELTA
 function toggleHighscore(){
 	if($(".toggleDaily").attr("id")==="daily"){
 		$("#highscoreTotal").hide(200);

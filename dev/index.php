@@ -56,7 +56,7 @@
 			    FastClick.attach(document.body);
 			}, false);
 		</script>
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script type="text/javascript">google.load('visualization', '1.0', {'packages':['corechart']});</script>
 	</head>
@@ -81,6 +81,7 @@
 					<div id="myTasks" onload="generateMyGoals()"></div>
 				</div>
 
+				<!-- KOMMENTERA BORT I DELTA -->
 				<div id="highscoreView">
 					<div id="highscoreTotal" onload="generateTotalHighscore()">
 						<!-- Highscores go here -->
@@ -126,6 +127,7 @@
 				<div class="footer">
 					<div class="tab myGoals" onclick="showMyGoals();clickLog('1')">
 					</div>
+					<!-- KOMMENTERA BORT I DELTA -->
 					<div class="tab highScore" onclick="showHighscore();clickLog('2')">
 					</div>
 					<div class="tab stats" onclick="showMyStats();clickLog('3')">
