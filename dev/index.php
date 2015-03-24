@@ -1,7 +1,9 @@
 <?php 
 	if(!isset($_COOKIE['userID'])){
 		header("Location: login.php");
-	} else {
+	} else if($_COOKIE['userID']<50){
+		header('Location: php/logout.php');
+	}else {
 		include_once("php/config.php");
 		include_once("php/functions.php");
 		$loggedIn = $_COOKIE['userID'];
