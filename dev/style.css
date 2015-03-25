@@ -1125,3 +1125,232 @@ li{
 		height: 340px;
 	}
 }
+
+
+/* iPhone 5 specific styling */
+
+@media screen and (device-width: 320px) and (device-height: 568px){
+	.logoHolder{
+		padding-top: 48px;
+	}
+	.logo{
+		height: 144px;
+	}
+	.loginForm{
+		padding-top: 24px;
+	}
+	.bottomBar{
+		margin-top: 48px;
+		margin-left: 64px;
+		font-size: 14px;
+	}
+	.userinput{
+		border: #ffffe8 solid 2px;
+		border-radius: 39px;
+		padding: 14px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 14px;
+		margin-top: 34px;
+		height: 38px;
+	}
+	#pw{
+		margin-top: 14px;
+	}
+	.goalButton{
+		height: 115px;
+		font-size: 13px;
+	}
+	.goalGrid{
+		height: 350px;
+		padding-top: 14px;
+		width: 320px;
+		bottom: 82px;
+	}
+	#chooseGoalsHeader{
+		font-size: 29px;
+	}
+	.ownGoal{
+		margin-left: 22px;
+		margin-right: 22px;
+	}
+	.bottomGreen{
+		height: 82px;
+		width: 320px;
+	}
+	#bottomSummaryLinks{
+		height: 72px;
+		width: 320px;
+	}
+
+	.summaryBody{
+		height:395px;
+	}
+
+	.prev {
+		margin-top:15px;
+	}
+
+	.next {
+		margin-top:15px;
+	}
+	.toOwnGoals{
+		margin-left: 10px;
+		margin-top: 14px;
+		width: 128px;
+		left: 16px;
+	}
+	.toIndex{
+		margin-top: 14px;
+		width: 128px;
+		bottom: 14px;
+	}
+	.headerBg{
+		height: 96px;
+	}
+	.headerBg h1{
+		padding-top: 38px;
+	}
+	.center.instruction{
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 14px;
+	}
+	.indexHeader{
+	  	height: 56px;
+		width: 320px;
+	}
+	.button{
+		height: 28px;
+		width: 28px;
+		margin: 11px;
+	}
+	.headerTitle{
+		font-size: 28px;
+	}
+	#slideMenu{
+		width: 224px;
+		height: 568px;
+		min-width: 224px;
+		top: 56px;
+		font-size: 19px;
+		box-shadow: rgba(0, 0, 0, 0.3) 6px 0px 13px 0px;
+	}
+	#userInfo{
+		padding-top: 31px;
+		padding-bottom: 31px;
+		max-height: 85px;
+		height: 24px; 
+	}
+	nav ul li{
+		padding-left: 25px;
+		padding-bottom: 31px;
+		padding-top: 31px;
+	}
+	.userIcon{
+		height: 19px;
+		margin-right: 16px;
+	}
+	.sideMenuBottomFix{
+		bottom: 0px;
+		width: 199px;
+		padding-top: 28px;
+	}
+	#logoutButton{
+		height: 16px;
+		width: 16px;
+		margin: 6px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	#myTasks{
+		height: 426px;
+	}
+	.goal{
+		width: 320px;
+		height: 85px;
+		font-size: 17px;
+	}
+	.pointCircle{
+		height: 68px;
+		width: 68px;
+		border-radius: 68px;
+		margin: 8.5px;
+		background-size: 57px 57px;
+	}
+	.description{
+		width: 224px;
+	}
+	.points{
+		line-height: 68px;
+	}
+	.footer{
+		height: 15%;
+		width: 100%;
+		z-index: 100;
+	}
+	.tab{
+		width: 33%;
+		background-size: 28.4px;
+	}
+	.container.offsetHeader{
+		padding-top: 57px;
+	}
+	#highscoreView{
+		height: 426px;
+	}
+	.positionCircle{
+		height: 31px;
+		width: 31px;
+		border-radius: 31px;
+		margin-left: 6px;
+		margin-right: 14px;
+	}
+	.position{
+		line-height: 31px;
+		font-size: 14px;
+	}
+	.toggleDaily{
+		height: 45px;
+		width: 45px;
+		border-radius: 45px;
+		background-size: 23px;
+		bottom: 102px;
+		right: 17px;
+	}
+	.toggle{
+		line-height: 45px;
+	}
+	.dailyStats{
+		width: 160px;
+	}
+	.statsTitle{
+		font-size: 17px;
+		bottom: -57px;
+	}
+	.pieChart{
+		width: 160px;
+		height: 284px;
+	}
+	.totalStats{
+		width: 160px;
+	}
+	#leftStat{
+		bottom: 34px;
+		padding-bottom: 8.5px;
+	}
+	#middleStat{
+		bottom: 34px;
+		padding-bottom: 8.5px;
+	}
+	#rightStat{
+		bottom: 34px;
+		padding-bottom: 8.5px;
+	}
+	#outer{
+		background-color: rgb(33, 33, 33);
+	}
+	#statsView{
+		height: 426px;
+	}
+}
